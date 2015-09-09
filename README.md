@@ -1,5 +1,5 @@
 # incident-cs
-![Logo](http://kornelijepetak.com/incident.png)
+![Logo](http://kornelijepetak.com/incident-logo.png)
 
 Randomization library for .NET
 Inspired by the [chance.js](http://chancejs.com/) library.
