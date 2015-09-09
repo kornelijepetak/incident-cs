@@ -70,14 +70,77 @@ namespace IncidentTests
 			Incident.Primitive.ByteBetween(256, 300);
 		}
 
-		public void Test(Func<int> nextRandomElement, int arraySize, int numberCount = DefaultTestIterationCount, double expectedPercentage = 1)
+		[TestMethod]
+		public void SignedByteDistribution()
+		{
+			Test(() => Incident.Primitive.SignedByte + 128, byte.MaxValue + 1);
+		}
+
+		[TestMethod]
+		public void ShortDistribution()
+		{
+			Test(() => Incident.Primitive.Short + 32768, ushort.MaxValue + 1, 100000000);
+		}
+
+		[TestMethod]
+		public void PositiveShortDistribution()
+		{
+			Test(() => Incident.Primitive.PositiveShort, short.MaxValue + 1, 100000000);
+		}
+
+		[TestMethod]
+		public void UnsignedShortDistribution()
+		{
+			Test(() => Incident.Primitive.UnsignedShort, ushort.MaxValue + 1, 100000000);
+		}
+
+		[TestMethod]
+		public void IntegerDistribution()
+		{
+			/* 
+				Test runs a rather small number of iterations, so testing
+				all buckets is infeasible. Instead, take a smaller number of
+				buckets and distribute the randomized numbers into those.
+			*/
+			int bucketCount = 256;
+
+			Test(() => (Incident.Primitive.Integer % bucketCount) + bucketCount - 1, 2 * bucketCount - 1, 100000000);
+		}
+
+		[TestMethod]
+		public void PositiveIntegerDistribution()
+		{
+			/* 
+				Test runs a rather small number of iterations, so testing
+				all buckets is infeasible. Instead, take a smaller number of
+				buckets and distribute the randomized numbers into those.
+			*/
+			int bucketCount = 256;
+
+			Test(() => (Incident.Primitive.PositiveInteger % bucketCount), bucketCount, 100000000);
+		}
+
+		[TestMethod]
+		public void UnsignedIntegerDistribution()
+		{
+			/* 
+				Test runs a rather small number of iterations, so testing
+				all buckets is infeasible. Instead, take a smaller number of
+				buckets and distribute the randomized numbers into those.
+			*/
+			int bucketCount = 256;
+
+			Test(() => (int)(Incident.Primitive.UnsignedInteger % bucketCount), bucketCount, 100000000);
+		}
+
+		public void Test(Func<int> nextRandomElement, int arraySize, int numberCount = DefaultTestIterationCount, double expectedPercentage = 5)
 		{
 			int[] counts = new int[arraySize];
 
 			for (int i = 0; i < numberCount; i++)
 				counts[nextRandomElement()]++;
 
-			// Expect that standard deviation is smaller than expectedPercentage% of the expected bucket size
+			// Expect that standard deviation is less than expectedPercentage% of the expected bucket size
 			Assert.IsTrue(counts.Validate(numberCount, expectedPercentage));
 		}
 	}
