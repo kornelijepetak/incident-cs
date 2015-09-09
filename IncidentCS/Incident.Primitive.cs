@@ -45,6 +45,21 @@ namespace KornelijePetak.IncidentCS
 			}
 
 			/// <summary>
+			/// Gets a random time between <paramref name="start"/> and <paramref name="end"/>
+			/// </summary>
+			/// <exception cref="System.ArgumentException">The time of <paramref name="start"/> is greater than the time of <paramref name="end"/></exception>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random time in specified interval</returns>
+			public static DateTime TimeBetween(DateTime start, DateTime end)
+			{
+				if (start > end)
+					throw new ArgumentException("The time of 'start' must be less than the time of 'end'!");
+
+				return start.AddDays((end - start).TotalDays * Rand.NextDouble());
+			}
+
+			/// <summary>
 			/// Gets a random byte from interval [0, 255]
 			/// </summary>
 			public static byte Byte
