@@ -22,6 +22,18 @@ namespace KornelijePetak.IncidentCS
 			}
 
 			/// <summary>
+			/// Returns a new random GUID
+			/// </summary>
+			public static Guid Guid
+			{
+				get
+				{
+					return new Guid();
+				}
+			}
+
+
+			/// <summary>
 			/// Gets a random byte from interval [0, 255]
 			/// </summary>
 			public static byte Byte
@@ -135,7 +147,6 @@ namespace KornelijePetak.IncidentCS
 
 				return (short)Rand.Next(start, end);
 			}
-
 
 			/// <summary>
 			/// Gets a random unsigned short from interval [0, 65535]
