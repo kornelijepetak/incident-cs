@@ -32,6 +32,17 @@ namespace KornelijePetak.IncidentCS
 				}
 			}
 
+			/// <summary>
+			/// Gets a random DateTime from interval [0000-01-01 00:00:00, 9999-12-31 23:59:59.9*]
+			/// </summary>
+			public static DateTime Time
+			{
+				get
+				{
+					var days = (DateTime.MaxValue - DateTime.MinValue).TotalDays;
+					return DateTime.MinValue.AddDays(Rand.NextDouble() * days);
+				}
+			}
 
 			/// <summary>
 			/// Gets a random byte from interval [0, 255]
