@@ -34,7 +34,12 @@ namespace KornelijePetak.IncidentCS
 
 			/// <summary>
 			/// Gets a random byte between <paramref name="start"/> and <paramref name="end"/>
-			/// <remarks>If <paramref name="start"/> is greater than <paramref name="end"/>, they will be swapped and the result will be between [end, start]</remarks>
+			/// <remarks>
+			///		If <paramref name="start"/> is greater than <paramref name="end"/>, 
+			///		they will be swapped and the result will be between [end, start].
+			///		Note that the lower <paramref name="end"/> bound is now inclusive, and 
+			///		the <paramref name="upper"/> bound is exclusive.
+			/// </remarks>
 			/// </summary>
 			/// <param name="start">Inclusive lower bound</param>
 			/// <param name="end">Exclusive upper bound</param>
