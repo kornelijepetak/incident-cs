@@ -7,7 +7,11 @@ namespace IncidentTests
 	[TestClass]
 	public class Primitives
 	{
-		public const int DefaultTestIterationCount = 10000000;
+		/*
+		 * This parameter must be at least 1E+8 in order for 
+		 * distributions to approach satisfying uniformitys
+		 */
+		public const int DefaultTestIterationCount = 100000000;
 		
 		#region Boolean
 
@@ -113,19 +117,19 @@ namespace IncidentTests
 		[TestMethod]
 		public void ShortDistribution()
 		{
-			Test(() => Incident.Primitive.Short + 32768, ushort.MaxValue + 1, 100000000);
+			Test(() => Incident.Primitive.Short + 32768, ushort.MaxValue + 1);
 		}
 
 		[TestMethod]
 		public void PositiveShortDistribution()
 		{
-			Test(() => Incident.Primitive.PositiveShort, short.MaxValue + 1, 100000000);
+			Test(() => Incident.Primitive.PositiveShort, short.MaxValue + 1);
 		}
 
 		[TestMethod]
 		public void UnsignedShortDistribution()
 		{
-			Test(() => Incident.Primitive.UnsignedShort, ushort.MaxValue + 1, 100000000);
+			Test(() => Incident.Primitive.UnsignedShort, ushort.MaxValue + 1);
 		}
 
 		[TestMethod]
@@ -138,7 +142,7 @@ namespace IncidentTests
 			*/
 			int bucketCount = 256;
 
-			Test(() => (Incident.Primitive.Integer % bucketCount) + bucketCount - 1, 2 * bucketCount - 1, 100000000);
+			Test(() => (Incident.Primitive.Integer % bucketCount) + bucketCount - 1, 2 * bucketCount - 1);
 		}
 
 		[TestMethod]
@@ -151,7 +155,7 @@ namespace IncidentTests
 			*/
 			int bucketCount = 256;
 
-			Test(() => (Incident.Primitive.PositiveInteger % bucketCount), bucketCount, 100000000);
+			Test(() => (Incident.Primitive.PositiveInteger % bucketCount), bucketCount);
 		}
 
 		[TestMethod]
@@ -164,7 +168,7 @@ namespace IncidentTests
 			*/
 			int bucketCount = 256;
 
-			Test(() => (int)(Incident.Primitive.UnsignedInteger % bucketCount), bucketCount, 100000000);
+			Test(() => (int)(Incident.Primitive.UnsignedInteger % bucketCount), bucketCount);
 		}
 
 		[TestMethod]
@@ -177,7 +181,7 @@ namespace IncidentTests
 		public void FloatUnitDistribution()
 		{
 			int bucketCount = 100000;
-			Test(() => (int)(Incident.Primitive.FloatUnit * bucketCount), bucketCount, 100000000);
+			Test(() => (int)(Incident.Primitive.FloatUnit * bucketCount), bucketCount);
 		}
 
 		[TestMethod]
@@ -190,7 +194,7 @@ namespace IncidentTests
 		public void DoubleUnitDistribution()
 		{
 			int bucketCount = 100000;
-			Test(() => (int)(Incident.Primitive.DoubleUnit * bucketCount), bucketCount, 100000000);
+			Test(() => (int)(Incident.Primitive.DoubleUnit * bucketCount), bucketCount);
 		}
 
 		public void Test(Func<int> nextRandomElement, int arraySize, int numberCount = DefaultTestIterationCount, double expectedPercentage = 5)
