@@ -52,9 +52,7 @@ namespace KornelijePetak.IncidentCS
 				if (end > 256)
 					throw new ArgumentOutOfRangeException("The value of 'end' must be less than or equal 256.");
 
-				return start < end
-					? (byte)Rand.Next(start, end)
-					: (byte)Rand.Next(end, start);
+				return (byte)Rand.Next(start, end);
 			}
 
 			/// <summary>
@@ -82,15 +80,13 @@ namespace KornelijePetak.IncidentCS
 				if (start > end)
 					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
 
-				if(start < -128)
+				if (start < -128)
 					throw new ArgumentOutOfRangeException("The value of 'start' must be greater than or equal -128.");
 
 				if (end > 128)
 					throw new ArgumentOutOfRangeException("The value of 'end' must be less than or equal 128.");
 
-				return start < end
-					? (sbyte)Rand.Next(start, end)
-					: (sbyte)Rand.Next(end, start);
+				return (sbyte)Rand.Next(start, end);
 			}
 
 			/// <summary>
@@ -119,20 +115,27 @@ namespace KornelijePetak.IncidentCS
 
 			/// <summary>
 			/// Gets a random short between <paramref name="start"/> and <paramref name="end"/>
-			/// <remarks>
-			///		If <paramref name="start"/> is greater than <paramref name="end"/>, 
-			///		they will be swapped and the result will be between [end, start].
-			///		Note that the lower <paramref name="end"/> bound is now inclusive, and 
-			///		the <paramref name="upper"/> bound is exclusive.
-			/// </remarks>
 			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than -32768.</exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 32768.</exception>
 			/// <param name="start">Inclusive lower bound</param>
 			/// <param name="end">Exclusive upper bound</param>
 			/// <returns>A random short in specified interval</returns>
 			public static short ShortBetween(int start, int end)
 			{
-				return 0;
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
+
+				if (start < -32768)
+					throw new ArgumentOutOfRangeException("The value of 'start' must be greater than or equal -32768.");
+
+				if (end > 32768)
+					throw new ArgumentOutOfRangeException("The value of 'end' must be less than or equal 32768.");
+
+				return (short)Rand.Next(start, end);
 			}
+
 
 			/// <summary>
 			/// Gets a random unsigned short from interval [0, 65535]
@@ -148,6 +151,29 @@ namespace KornelijePetak.IncidentCS
 			}
 
 			/// <summary>
+			/// Gets a random unsigned short between <paramref name="start"/> and <paramref name="end"/>
+			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than 0.</exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 65536.</exception>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random unsigned short in specified interval</returns>
+			public static ushort UnsignedShortBetween(int start, int end)
+			{
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
+
+				if (start < 0)
+					throw new ArgumentOutOfRangeException("The value of 'start' must be greater than or equal 0.");
+
+				if (end > 65536)
+					throw new ArgumentOutOfRangeException("The value of 'end' must be less than or equal 65536.");
+
+				return (ushort)Rand.Next(start, end);
+			}
+
+			/// <summary>
 			/// Gets a random integer from interval [-2147483648, 2147483647]
 			/// </summary>
 			public static int Integer
@@ -158,6 +184,21 @@ namespace KornelijePetak.IncidentCS
 					Rand.NextBytes(intArray);
 					return BitConverter.ToInt32(intArray, 0);
 				}
+			}
+
+			/// <summary>
+			/// Gets a random integer between <paramref name="start"/> and <paramref name="end"/>
+			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random integer in specified interval</returns>
+			public static int IntegerBetween(int start, int end)
+			{
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
+
+				return Rand.Next(start, end);
 			}
 
 			/// <summary>
@@ -182,6 +223,21 @@ namespace KornelijePetak.IncidentCS
 					Rand.NextBytes(uintArray);
 					return BitConverter.ToUInt32(uintArray, 0);
 				}
+			}
+
+			/// <summary>
+			/// Gets a random unsigned integer between <paramref name="start"/> and <paramref name="end"/>
+			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random unsigned integer in specified interval</returns>
+			public static uint UnsignedIntegerBetween(int start, int end)
+			{
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
+
+				return (uint)(Rand.Next(start, end) + 2147483648L);
 			}
 
 			/// <summary>
@@ -216,6 +272,28 @@ namespace KornelijePetak.IncidentCS
 			}
 
 			/// <summary>
+			/// Gets a random float between <paramref name="start"/> and <paramref name="end"/>
+			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random float in specified interval</returns>
+			public static float FloatBetween(float start, float end)
+			{
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
+
+				double randomValue;
+
+				do
+				{
+					randomValue = Rand.NextDouble() * (end - start) + start;
+				} while ((float)randomValue == end);
+
+				return (float)randomValue;
+			}
+
+			/// <summary>
 			/// Gets a random float between 0 (inclusive) and 1 (exclusive)
 			/// </summary>
 			public static double Double
@@ -237,6 +315,21 @@ namespace KornelijePetak.IncidentCS
 				{
 					return Rand.NextDouble();
 				}
+			}
+
+			/// <summary>
+			/// Gets a random double between <paramref name="start"/> and <paramref name="end"/>
+			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random double in specified interval</returns>
+			public static double DoubleBetween(double start, double end)
+			{
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
+
+				return Rand.NextDouble() * (end - start) + start;
 			}
 
 		}

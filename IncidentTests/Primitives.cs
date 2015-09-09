@@ -8,11 +8,12 @@ namespace IncidentTests
 	public class Primitives
 	{
 		/*
-		 * This parameter must be at least 1E+8 in order for 
-		 * distributions to approach satisfying uniformitys
+		 * This parameter must be at least 1E+8 in order for distributions to approach 
+		 * satisfying uniformity. If the sample is too small, the standard deviation is 
+		 * too large.
 		 */
-		public const int DefaultTestIterationCount = 100000000;
-		
+		private const int DefaultTestIterationCount = 100000000;
+
 		#region Boolean
 
 		[TestMethod]
@@ -24,7 +25,7 @@ namespace IncidentTests
 		#endregion
 
 		#region Byte
-		
+
 		[TestMethod]
 		public void ByteDistribution()
 		{
@@ -34,8 +35,11 @@ namespace IncidentTests
 		[TestMethod]
 		public void ByteBetweenDistribution()
 		{
-			// Test distribution
+			// Test different areas of distribution
 			Test(() => Incident.Primitive.ByteBetween(15, 25) - 15, 10);
+			Test(() => Incident.Primitive.ByteBetween(0, 5), 5);
+			Test(() => Incident.Primitive.ByteBetween(200, 256) - 200, 56);
+			Test(() => Incident.Primitive.ByteBetween(15, 15) - 15, 1);
 		}
 
 		[TestMethod]
@@ -92,6 +96,18 @@ namespace IncidentTests
 		}
 
 		[TestMethod]
+		public void SignedByteBetweenDistribution()
+		{
+			// Test different areas of distribution
+			Test(() => Incident.Primitive.SignedByteBetween(15, 25) - 15, 10);
+			Test(() => Incident.Primitive.SignedByteBetween(0, 5), 5);
+			Test(() => Incident.Primitive.SignedByteBetween(125, 127) - 125, 2);
+			Test(() => Incident.Primitive.SignedByteBetween(15, 15) - 15, 1);
+			Test(() => Incident.Primitive.SignedByteBetween(-100, -90) + 100, 10);
+			Test(() => Incident.Primitive.SignedByteBetween(-128, -127) + 128, 1);
+		}
+
+		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
 		public void SignedByteBetweenStartGreaterThanEnd()
 		{
@@ -114,10 +130,12 @@ namespace IncidentTests
 
 		#endregion
 
+		#region Short
+
 		[TestMethod]
 		public void ShortDistribution()
 		{
-			Test(() => Incident.Primitive.Short + 32768, ushort.MaxValue + 1);
+			Test(() => Incident.Primitive.Short + short.MaxValue + 1, ushort.MaxValue + 1);
 		}
 
 		[TestMethod]
@@ -127,10 +145,104 @@ namespace IncidentTests
 		}
 
 		[TestMethod]
+		public void ShortBetweenOutOfInterval()
+		{
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.ShortBetween(-4500, 5000);
+				Assert.IsTrue(-4500 <= rnd && rnd < 5000);
+			}
+		}
+
+		[TestMethod]
+		public void ShortBetweenDistribution()
+		{
+			// Test different areas of distribution
+			Test(() => Incident.Primitive.ShortBetween(150, 250) - 150, 100);
+			Test(() => Incident.Primitive.ShortBetween(0, 5), 5);
+			Test(() => Incident.Primitive.ShortBetween(1250, 1252) - 1250, 2);
+			Test(() => Incident.Primitive.ShortBetween(150, 150) - 150, 1);
+			Test(() => Incident.Primitive.ShortBetween(-1000, -900) + 1000, 100);
+			Test(() => Incident.Primitive.ShortBetween(-1280, -1270) + 1280, 10);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void ShortBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.ShortBetween(4560, 2100);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void ShortBetweenStartTooSmall()
+		{
+			Incident.Primitive.ShortBetween(-32769, 0);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void ShortBetweenEndTooBig()
+		{
+			Incident.Primitive.ShortBetween(0, 32769);
+		}
+
+		#endregion
+
+		#region Unsigned short
+
+		[TestMethod]
 		public void UnsignedShortDistribution()
 		{
 			Test(() => Incident.Primitive.UnsignedShort, ushort.MaxValue + 1);
 		}
+
+		[TestMethod]
+		public void UnsignedShortBetweenOutOfInterval()
+		{
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.UnsignedShortBetween(20000, 21000);
+				Assert.IsTrue(20000 <= rnd && rnd < 21000);
+			}
+		}
+
+		[TestMethod]
+		public void UnsignedShortBetweenDistribution()
+		{
+			// Test different areas of distribution
+			Test(() => Incident.Primitive.UnsignedShortBetween(65532, 65535) - 65532, 3);
+			Test(() => Incident.Primitive.UnsignedShortBetween(0, 5), 5);
+			Test(() => Incident.Primitive.UnsignedShortBetween(1250, 1252) - 1250, 2);
+			Test(() => Incident.Primitive.UnsignedShortBetween(150, 150) - 150, 1);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void UnsignedShortBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.UnsignedShortBetween(1000, 500);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void UnsignedShortBetweenStartTooSmall()
+		{
+			Incident.Primitive.UnsignedShortBetween(-1, 0);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void UnsignedShortBetweenEndTooBig()
+		{
+			Incident.Primitive.UnsignedShortBetween(0, 65537);
+		}
+
+		#endregion
+
+		#region Integer
 
 		[TestMethod]
 		public void IntegerDistribution()
@@ -159,6 +271,39 @@ namespace IncidentTests
 		}
 
 		[TestMethod]
+		public void IntegerBetweenOutOfInterval()
+		{
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.IntegerBetween(10000000, 10000100);
+				Assert.IsTrue(10000000 <= rnd && rnd < 10000100);
+			}
+		}
+
+		[TestMethod]
+		public void IntegerBetweenBetweenDistribution()
+		{
+			// Test different areas of distribution
+			Test(() => Incident.Primitive.IntegerBetween(65532, 65535) - 65532, 3);
+			Test(() => Incident.Primitive.IntegerBetween(0, 5), 5);
+			Test(() => Incident.Primitive.IntegerBetween(125000, 125200) - 125000, 200);
+			Test(() => Incident.Primitive.IntegerBetween(1500000, 1500100) - 1500000, 100);
+			Test(() => Incident.Primitive.IntegerBetween(-15000, 15000) + 15000, 30000);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void IntegerBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.IntegerBetween(500000, 400000);
+		}
+
+		#endregion
+
+		#region Unsigned Integer
+
+		[TestMethod]
 		public void UnsignedIntegerDistribution()
 		{
 			/* 
@@ -172,9 +317,41 @@ namespace IncidentTests
 		}
 
 		[TestMethod]
+		public void UnsignedIntegerBetweenOutOfInterval()
+		{
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.IntegerBetween(10000000, 10000100);
+				Assert.IsTrue(10000000 <= rnd && rnd < 10000100);
+			}
+		}
+
+		[TestMethod]
+		public void UnsignedIntegerBetweenBetweenDistribution()
+		{
+			// Test different areas of distribution
+			Test(() => Incident.Primitive.IntegerBetween(65532, 65535) - 65532, 3);
+			Test(() => Incident.Primitive.IntegerBetween(0, 5), 5);
+			Test(() => Incident.Primitive.IntegerBetween(125000, 125200) - 125000, 200);
+			Test(() => Incident.Primitive.IntegerBetween(1500000, 1500100) - 1500000, 100);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void UnsignedIntegerBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.IntegerBetween(500000, 400000);
+		}
+
+		#endregion
+
+		#region Float
+
+		[TestMethod]
 		public void FloatDistribution()
 		{
-			// TODO: Find a way to test the floats across the whole domain
+			// TODO: Find a way to test the float distribution uniformity across the whole domain
 		}
 
 		[TestMethod]
@@ -183,6 +360,46 @@ namespace IncidentTests
 			int bucketCount = 100000;
 			Test(() => (int)(Incident.Primitive.FloatUnit * bucketCount), bucketCount);
 		}
+
+		[TestMethod]
+		public void FloatBetweenOutOfInterval()
+		{
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.FloatBetween(5.85f, 5.92f);
+				Assert.IsTrue(5.85f <= rnd && rnd <= 5.92f);
+			}
+		}
+
+		[TestMethod]
+		public void FloatBetweenDistribution()
+		{
+			int bucketCount = 100000;
+
+			Test(() => 
+				getFloatRandomBucketFromRange(0.2f, 0.5f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
+			
+			Test(() => 
+				getFloatRandomBucketFromRange(0.02f, 0.03f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
+			
+			Test(() => 
+				getFloatRandomBucketFromRange(0.002f, 0.003f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
+			
+			Test(() => 
+				getFloatRandomBucketFromRange(123456f, 1234567f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void FloatBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.FloatBetween(5.45f, 3.22f);
+		}
+
+		#endregion
+
+		#region Double
 
 		[TestMethod]
 		public void DoubleDistribution()
@@ -197,7 +414,45 @@ namespace IncidentTests
 			Test(() => (int)(Incident.Primitive.DoubleUnit * bucketCount), bucketCount);
 		}
 
-		public void Test(Func<int> nextRandomElement, int arraySize, int numberCount = DefaultTestIterationCount, double expectedPercentage = 5)
+		[TestMethod]
+		public void DoubleBetweenOutOfInterval()
+		{
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.DoubleBetween(855.2, 912.88);
+				Assert.IsTrue(855.2 <= rnd && rnd <= 912.88);
+			}
+		}
+
+		[TestMethod]
+		public void DoubleBetweenDistribution()
+		{
+			int bucketCount = 100000;
+
+			Test(() =>
+				getDoubleRandomBucketFromRange(0.02, 0.05, Incident.Primitive.DoubleBetween, bucketCount), bucketCount);
+
+			Test(() =>
+				getDoubleRandomBucketFromRange(0.002, 0.003, Incident.Primitive.DoubleBetween, bucketCount), bucketCount);
+
+			Test(() =>
+				getDoubleRandomBucketFromRange(0.0002, 0.0003, Incident.Primitive.DoubleBetween, bucketCount), bucketCount);
+
+			Test(() =>
+				getDoubleRandomBucketFromRange(12345600, 123456700, Incident.Primitive.DoubleBetween, bucketCount), bucketCount);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void DoubleBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.DoubleBetween(75.245, 38.242);
+		}
+
+		#endregion
+
+		protected void Test(Func<int> nextRandomElement, int arraySize, int numberCount = DefaultTestIterationCount, double expectedPercentage = 5)
 		{
 			int[] counts = new int[arraySize];
 
@@ -209,6 +464,24 @@ namespace IncidentTests
 
 			// Expect that standard deviation is less than expectedPercentage% of the expected bucket size
 			Assert.IsTrue(counts.Validate(numberCount, expectedPercentage));
+		}
+
+		private int getFloatRandomBucketFromRange(float start, float end, Func<float, float, float> randomValueSelector, int bucketCount)
+		{
+			var rand = randomValueSelector(start, end);
+			rand -= start;
+			rand /= (end - start);
+			rand *= bucketCount;
+			return (int)rand;
+		}
+
+		private int getDoubleRandomBucketFromRange(double start, double end, Func<double, double, double> randomValueSelector, int bucketCount)
+		{
+			var rand = randomValueSelector(start, end);
+			rand -= start;
+			rand /= (end - start);
+			rand *= bucketCount;
+			return (int)rand;
 		}
 	}
 }
