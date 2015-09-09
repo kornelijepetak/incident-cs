@@ -6,12 +6,10 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 
 ## Randomization areas:
 - [ ] Primitives
-    - [ ] Numerics (60%)
-        - [ ] Write methods
-        - [ ] Write more tests
-    - [ ] Guids
+    - [x] Numerics
+    - [x] Guid
     - [ ] Characters
-    - [ ] DateTime
+    - [x] DateTime
     - [ ] Timespans
 - [ ] Words and sentences
 - [ ] Names and Birthdays
