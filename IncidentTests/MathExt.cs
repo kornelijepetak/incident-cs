@@ -31,8 +31,6 @@ namespace IncidentTests
 			var relativeStdDev = stdDev / expectedCountInBucket;
 
 			return relativeStdDev < upperBoundForStdDev;
-
-			//return sigmaTooHightPercentage <= allowedPercentage;
 		}
 
 	}
