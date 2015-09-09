@@ -15,10 +15,9 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 - [ ] Names and Birthdays
 - [ ] Phone numbers
 - [ ] Geographic data
-- [ ] Time
 - [ ] Colors
 - [ ] Games related
 - [ ] Web related
 
 ## Other features
-- [ ] Use Mersene Twister instead of System.Random
+- [ ] Consider using Mersene Twister instead of System.Random
