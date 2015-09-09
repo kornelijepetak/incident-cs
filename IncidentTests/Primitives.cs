@@ -8,6 +8,8 @@ namespace IncidentTests
 	public class Primitives
 	{
 		public const int DefaultTestIterationCount = 10000000;
+		
+		#region Boolean
 
 		[TestMethod]
 		public void BooleanDistribution()
@@ -15,6 +17,10 @@ namespace IncidentTests
 			Test(() => Incident.Primitive.Boolean ? 1 : 0, 2);
 		}
 
+		#endregion
+
+		#region Byte
+		
 		[TestMethod]
 		public void ByteDistribution()
 		{
@@ -26,20 +32,6 @@ namespace IncidentTests
 		{
 			// Test distribution
 			Test(() => Incident.Primitive.ByteBetween(15, 25) - 15, 10);
-
-			// Test that there are no numbers outside the interval
-			for (int i = 0; i < DefaultTestIterationCount; i++)
-			{
-				var rnd = Incident.Primitive.ByteBetween(15, 25);
-				Assert.IsTrue(15 <= rnd && rnd < 25);
-			}
-
-			// Test inversion
-			for (int i = 0; i < DefaultTestIterationCount; i++)
-			{
-				var rnd = Incident.Primitive.ByteBetween(25, 15);
-				Assert.IsTrue(15 <= rnd && rnd < 25);
-			}
 		}
 
 		[TestMethod]
@@ -54,27 +46,69 @@ namespace IncidentTests
 		}
 
 		[TestMethod]
-		public void ByteBetweenInversion()
+		[ExpectedException(typeof(ArgumentException))]
+		public void ByteBetweenStartGreaterThanEnd()
 		{
-			for (int i = 0; i < DefaultTestIterationCount; i++)
-			{
-				var rnd = Incident.Primitive.ByteBetween(25, 15);
-				Assert.IsTrue(15 <= rnd && rnd < 25);
-			}
+			Incident.Primitive.ByteBetween(25, 15);
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void ByteBetweenThrows()
+		public void ByteBetweenStartTooSmall()
 		{
-			Incident.Primitive.ByteBetween(256, 300);
+			Incident.Primitive.ByteBetween(-1, 0);
 		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void ByteBetweenEndTooBig()
+		{
+			Incident.Primitive.ByteBetween(0, 257);
+		}
+
+		#endregion
+
+		#region Signed Byte
 
 		[TestMethod]
 		public void SignedByteDistribution()
 		{
 			Test(() => Incident.Primitive.SignedByte + 128, byte.MaxValue + 1);
 		}
+
+		[TestMethod]
+		public void SignedByteBetweenOutOfInterval()
+		{
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.SignedByteBetween(-15, 25);
+				Assert.IsTrue(-15 <= rnd && rnd < 25);
+			}
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void SignedByteBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.SignedByteBetween(128, 0);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void SignedByteBetweenStartTooSmall()
+		{
+			Incident.Primitive.SignedByteBetween(-129, 0);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void SignedByteBetweenEndTooBig()
+		{
+			Incident.Primitive.SignedByteBetween(0, 129);
+		}
+
+		#endregion
 
 		[TestMethod]
 		public void ShortDistribution()

@@ -34,26 +34,26 @@ namespace KornelijePetak.IncidentCS
 
 			/// <summary>
 			/// Gets a random byte between <paramref name="start"/> and <paramref name="end"/>
-			/// <remarks>
-			///		If <paramref name="start"/> is greater than <paramref name="end"/>, 
-			///		they will be swapped and the result will be between [end, start].
-			///		Note that the lower <paramref name="end"/> bound is now inclusive, and 
-			///		the <paramref name="upper"/> bound is exclusive.
-			/// </remarks>
 			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than 0.</exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 256.</exception>
 			/// <param name="start">Inclusive lower bound</param>
 			/// <param name="end">Exclusive upper bound</param>
 			/// <returns>A random byte in specified interval</returns>
 			public static byte ByteBetween(int start, int end)
 			{
-				if (start < 0 || 256 < start || end < 0 || 256 < end)
-				{
-					// TODO Implement better error message here
-					throw new ArgumentOutOfRangeException("Start and End arguments must be between 0 and 256");
-				}
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
 
-				return start < end 
-					? (byte)Rand.Next(start, end) 
+				if (start < 0)
+					throw new ArgumentOutOfRangeException("The value of 'start' must be non-negative.");
+
+				if (end > 256)
+					throw new ArgumentOutOfRangeException("The value of 'end' must be less than or equal 256.");
+
+				return start < end
+					? (byte)Rand.Next(start, end)
 					: (byte)Rand.Next(end, start);
 			}
 
@@ -66,6 +66,31 @@ namespace KornelijePetak.IncidentCS
 				{
 					return Convert.ToSByte(Byte - 128);
 				}
+			}
+
+			/// <summary>
+			/// Gets a random signed byte between <paramref name="start"/> and <paramref name="end"/>
+			/// </summary>
+			/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than -128.</exception>
+			/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 128.</exception>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random signed byte in specified interval</returns>
+			public static sbyte SignedByteBetween(int start, int end)
+			{
+				if (start > end)
+					throw new ArgumentException("The value of 'start' must be less than the value of 'end'!");
+
+				if(start < -128)
+					throw new ArgumentOutOfRangeException("The value of 'start' must be greater than or equal -128.");
+
+				if (end > 128)
+					throw new ArgumentOutOfRangeException("The value of 'end' must be less than or equal 128.");
+
+				return start < end
+					? (sbyte)Rand.Next(start, end)
+					: (sbyte)Rand.Next(end, start);
 			}
 
 			/// <summary>
@@ -90,6 +115,23 @@ namespace KornelijePetak.IncidentCS
 				{
 					return (short)Rand.Next(0, short.MaxValue);
 				}
+			}
+
+			/// <summary>
+			/// Gets a random short between <paramref name="start"/> and <paramref name="end"/>
+			/// <remarks>
+			///		If <paramref name="start"/> is greater than <paramref name="end"/>, 
+			///		they will be swapped and the result will be between [end, start].
+			///		Note that the lower <paramref name="end"/> bound is now inclusive, and 
+			///		the <paramref name="upper"/> bound is exclusive.
+			/// </remarks>
+			/// </summary>
+			/// <param name="start">Inclusive lower bound</param>
+			/// <param name="end">Exclusive upper bound</param>
+			/// <returns>A random short in specified interval</returns>
+			public static short ShortBetween(int start, int end)
+			{
+				return 0;
 			}
 
 			/// <summary>
