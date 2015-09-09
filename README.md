@@ -4,7 +4,9 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 
 ## Randomization areas:
 - [ ] Primitives
-    - [ ] Numerics
+    - [ ] Numerics (60%)
+        - [ ] Write methods
+        - [ ] Write more tests
     - [ ] Guids
     - [ ] Characters
     - [ ] DateTime
@@ -17,3 +19,6 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 - [ ] Colors
 - [ ] Games related
 - [ ] Web related
+
+## Other features
+- [ ] Use Mersene Twister instead of System.Random
