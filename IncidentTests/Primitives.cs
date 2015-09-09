@@ -133,12 +133,41 @@ namespace IncidentTests
 			Test(() => (int)(Incident.Primitive.UnsignedInteger % bucketCount), bucketCount, 100000000);
 		}
 
+		[TestMethod]
+		public void FloatDistribution()
+		{
+			// TODO: Find a way to test the floats across the whole domain
+		}
+
+		[TestMethod]
+		public void FloatUnitDistribution()
+		{
+			int bucketCount = 100000;
+			Test(() => (int)(Incident.Primitive.FloatUnit * bucketCount), bucketCount, 100000000);
+		}
+
+		[TestMethod]
+		public void DoubleDistribution()
+		{
+			// TODO: Find a way to test the doubles across the whole domain
+		}
+
+		[TestMethod]
+		public void DoubleUnitDistribution()
+		{
+			int bucketCount = 100000;
+			Test(() => (int)(Incident.Primitive.DoubleUnit * bucketCount), bucketCount, 100000000);
+		}
+
 		public void Test(Func<int> nextRandomElement, int arraySize, int numberCount = DefaultTestIterationCount, double expectedPercentage = 5)
 		{
 			int[] counts = new int[arraySize];
 
 			for (int i = 0; i < numberCount; i++)
-				counts[nextRandomElement()]++;
+			{
+				var next = nextRandomElement();
+				counts[next]++;
+			}
 
 			// Expect that standard deviation is less than expectedPercentage% of the expected bucket size
 			Assert.IsTrue(counts.Validate(numberCount, expectedPercentage));
