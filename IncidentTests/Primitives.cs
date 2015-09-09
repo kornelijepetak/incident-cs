@@ -377,16 +377,16 @@ namespace IncidentTests
 		{
 			int bucketCount = 100000;
 
-			Test(() => 
+			Test(() =>
 				getFloatRandomBucketFromRange(0.2f, 0.5f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
-			
-			Test(() => 
+
+			Test(() =>
 				getFloatRandomBucketFromRange(0.02f, 0.03f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
-			
-			Test(() => 
+
+			Test(() =>
 				getFloatRandomBucketFromRange(0.002f, 0.003f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
 			
-			Test(() => 
+			Test(() =>
 				getFloatRandomBucketFromRange(123456f, 1234567f, Incident.Primitive.FloatBetween, bucketCount), bucketCount);
 		}
 
@@ -448,6 +448,50 @@ namespace IncidentTests
 		public void DoubleBetweenStartGreaterThanEnd()
 		{
 			Incident.Primitive.DoubleBetween(75.245, 38.242);
+		}
+
+		#endregion
+
+		#region Time
+
+		[TestMethod]
+		public void DateTimeUnitDistribution()
+		{
+			// Years distribution
+			Test(() => Incident.Primitive.DateTime.Year, 10000);
+
+			// Months distribution
+			Test(() => Incident.Primitive.DateTime.Month - 1, 12);
+			
+			// Hours distribution
+			Test(() => Incident.Primitive.DateTime.Hour, 24);
+
+			// Minutes distribution
+			Test(() => Incident.Primitive.DateTime.Minute, 60);
+
+			// Seconds distribution
+			Test(() => Incident.Primitive.DateTime.Second , 60);
+		}
+
+		[TestMethod]
+		public void DateTimeBetweenOutOfInterval()
+		{
+			var lowerBound = new DateTime(2001, 1, 1);
+			var upperBound = new DateTime(2005, 1, 1);
+
+			// Test that there are no numbers outside the interval
+			for (int i = 0; i < DefaultTestIterationCount; i++)
+			{
+				var rnd = Incident.Primitive.TimeBetween(lowerBound, upperBound);
+				Assert.IsTrue(lowerBound <= rnd && rnd <= upperBound);
+			}
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void DateTimeBetweenStartGreaterThanEnd()
+		{
+			Incident.Primitive.TimeBetween(new DateTime(2005, 1, 1), new DateTime(2001, 1, 1));
 		}
 
 		#endregion
