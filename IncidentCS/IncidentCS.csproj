@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Incident.Utils.cs" />
     <Compile Include="Incident.Localization.cs" />
+    <Compile Include="Incident.Text.cs" />
     <Compile Include="Incident.Initialize.cs" />
     <Compile Include="Incident.Primitive.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
