@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Incident.Utils.cs" />
     <Compile Include="Incident.Localization.cs" />
     <Compile Include="Incident.Initialize.cs" />
     <Compile Include="Incident.Primitive.cs" />
