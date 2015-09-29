@@ -10,7 +10,7 @@ namespace IncidentTests
 		/*
 		 * This parameter must be at least 1E+8 in order for distributions to approach 
 		 * satisfying uniformity. If the sample is too small, the standard deviation is 
-		 * too large.
+		 * too large. Note that with 1E+8 tests can take up to 10 minutes.
 		 */
 		private const int DefaultTestIterationCount = 100000000;
 

@@ -43,13 +43,15 @@
   <ItemGroup>
     <Compile Include="Incident.Utils.cs" />
     <Compile Include="Incident.Localization.cs" />
-    <Compile Include="Incident.Text.cs" />
     <Compile Include="Incident.Initialize.cs" />
-    <Compile Include="Incident.Primitive.cs" />
+    <Compile Include="Localization\LangTypeInfo.cs" />
+    <Compile Include="Primitive\PrimitiveBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text\TextBase.EN.cs" />
+    <Compile Include="Text\TextBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Lang\EN\Words.txt" />
+    <EmbeddedResource Include="Localization\EN\Words.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
