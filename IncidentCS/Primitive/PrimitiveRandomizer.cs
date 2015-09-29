@@ -9,7 +9,7 @@ namespace KornelijePetak.IncidentCS
 	/// <summary>
 	/// Generates random primitive values
 	/// </summary>
-	public class PrimitiveRandomizerBase
+	public class PrimitiveRandomizer : IPrimitiveRandomizer
 	{
 		/// <summary>
 		/// Gets a random boolean (true or false)

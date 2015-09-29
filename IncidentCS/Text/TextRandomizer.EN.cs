@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KornelijePetak.IncidentCS
 {
-	public class TextRandomizerEN : TextRandomizerBase
+	public class TextRandomizerEN : TextRandomizer
 	{
 		private string[] englishWords;
 

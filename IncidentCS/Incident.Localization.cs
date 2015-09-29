@@ -41,8 +41,8 @@ namespace KornelijePetak.IncidentCS
 
 		private static void setupDefaultRandomizers()
 		{
-			Primitive = new PrimitiveRandomizerBase();
-			Text = new TextRandomizerBase();
+			Primitive = new PrimitiveRandomizer();
+			Text = new TextRandomizer();
 		}
 	}
 }

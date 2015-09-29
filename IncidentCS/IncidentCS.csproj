@@ -45,10 +45,12 @@
     <Compile Include="Incident.Localization.cs" />
     <Compile Include="Incident.Initialize.cs" />
     <Compile Include="Localization\LangTypeInfo.cs" />
-    <Compile Include="Primitive\PrimitiveBase.cs" />
+    <Compile Include="Primitive\IPrimitiveRandomizer.cs" />
+    <Compile Include="Primitive\PrimitiveRandomizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Text\TextBase.EN.cs" />
-    <Compile Include="Text\TextBase.cs" />
+    <Compile Include="Text\ITextRandomizer.cs" />
+    <Compile Include="Text\TextRandomizer.EN.cs" />
+    <Compile Include="Text\TextRandomizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\EN\Words.txt" />

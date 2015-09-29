@@ -7,8 +7,8 @@ namespace KornelijePetak.IncidentCS
 	{
 		internal static Random Rand { get; private set; }
 
-		public static PrimitiveRandomizerBase Primitive { get; private set; }
-		public static TextRandomizerBase Text { get; private set; }
+		public static PrimitiveRandomizer Primitive { get; private set; }
+		public static TextRandomizer Text { get; private set; }
 
 		static Incident()
 		{

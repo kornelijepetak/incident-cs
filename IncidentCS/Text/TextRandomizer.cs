@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace KornelijePetak.IncidentCS
 {
-	public class TextRandomizerBase
+	public class TextRandomizer : ITextRandomizer
 	{
-
 		public virtual char ConsonantCharacter
 		{
 			get
