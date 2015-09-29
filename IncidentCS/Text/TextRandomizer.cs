@@ -74,5 +74,43 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
+		public string Sentence
+		{
+			get
+			{
+				StringBuilder builder = new StringBuilder();
+
+				int numberOfWords = Incident.Primitive.IntegerBetween(2, 12);
+
+				builder.Append(Word.Capitalize() + " ");
+
+				for (int i = 0; i < numberOfWords; i++)
+				{
+					builder.Append(Word);
+
+					if (i < numberOfWords - 1)
+					{
+						if (Incident.Primitive.DoubleUnit < 0.05)
+							builder.Append(",");
+
+						builder.Append(" ");
+					}
+				}
+
+				builder.Append(new[] { ".", "!", "?" }.ChooseAtRandom());
+
+				return builder.ToString();
+			}
+		}
+
+		public string Paragraph
+		{
+			get
+			{
+				int[] sentencesCounts = new[] { 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 7, 8, 9 };
+				int sentencesCount = sentencesCounts.ChooseAtRandom();
+				return string.Join(" ", Enumerable.Range(0, sentencesCount).Select(_ => Sentence));
+			}
+		}
 	}
 }

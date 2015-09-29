@@ -39,5 +39,15 @@ namespace KornelijePetak.IncidentCS
 		/// Returns a random word 
 		/// </summary>
 		string Word { get; }
+
+		/// <summary>
+		/// Returns a random sentence
+		/// </summary>
+		string Sentence { get; }
+
+		/// <summary>
+		/// Returns a random paragraph
+		/// </summary>
+		string Paragraph { get; }
 	}
 }
