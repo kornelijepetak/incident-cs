@@ -33,7 +33,7 @@ namespace KornelijePetak.IncidentCS
 			var langCode = Culture.TwoLetterISOLanguageName.ToUpper();
 			var cultureName = Culture.Name;
 
-			if (langCode.StartsWith("en"))
+			if (langCode == "EN")
 			{
 				Text = new TextRandomizerEN();
 			}
