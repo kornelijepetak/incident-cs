@@ -11,9 +11,6 @@ namespace KornelijePetak.IncidentCS
 	/// </summary>
 	public class PrimitiveRandomizer : IPrimitiveRandomizer
 	{
-		/// <summary>
-		/// Gets a random boolean (true or false)
-		/// </summary>
 		public virtual bool Boolean
 		{
 			get
@@ -22,9 +19,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Returns a new random GUID
-		/// </summary>
 		public virtual Guid Guid
 		{
 			get
@@ -33,9 +27,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random DateTime from interval [0000-01-01 00:00:00, 9999-12-31 23:59:59.9*]
-		/// </summary>
 		public virtual DateTime DateTime
 		{
 			get
@@ -45,13 +36,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random time between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The time of <paramref name="start"/> is greater than the time of <paramref name="end"/></exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random time in specified interval</returns>
 		public virtual DateTime TimeBetween(DateTime start, DateTime end)
 		{
 			if (start > end)
@@ -60,9 +44,6 @@ namespace KornelijePetak.IncidentCS
 			return start.AddDays((end - start).TotalDays * Incident.Rand.NextDouble());
 		}
 
-		/// <summary>
-		/// Gets a random byte from interval [0, 255]
-		/// </summary>
 		public virtual byte Byte
 		{
 			get
@@ -71,15 +52,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random byte between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than 0.</exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 256.</exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random byte in specified interval</returns>
 		public virtual byte ByteBetween(int start, int end)
 		{
 			if (start > end)
@@ -94,9 +66,6 @@ namespace KornelijePetak.IncidentCS
 			return (byte)Incident.Rand.Next(start, end);
 		}
 
-		/// <summary>
-		/// Gets a random signed byte from interval [-128, 127]
-		/// </summary>
 		public virtual sbyte SignedByte
 		{
 			get
@@ -105,15 +74,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random signed byte between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than -128.</exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 128.</exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random signed byte in specified interval</returns>
 		public virtual sbyte SignedByteBetween(int start, int end)
 		{
 			if (start > end)
@@ -128,9 +88,6 @@ namespace KornelijePetak.IncidentCS
 			return (sbyte)Incident.Rand.Next(start, end);
 		}
 
-		/// <summary>
-		/// Gets a random short from interval [-32768, 32767]
-		/// </summary>
 		public virtual short Short
 		{
 			get
@@ -141,9 +98,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random positive short from interval [0, 32767]
-		/// </summary>
 		public virtual short PositiveShort
 		{
 			get
@@ -152,15 +106,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random short between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than -32768.</exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 32768.</exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random short in specified interval</returns>
 		public virtual short ShortBetween(int start, int end)
 		{
 			if (start > end)
@@ -175,9 +120,6 @@ namespace KornelijePetak.IncidentCS
 			return (short)Incident.Rand.Next(start, end);
 		}
 
-		/// <summary>
-		/// Gets a random unsigned short from interval [0, 65535]
-		/// </summary>
 		public virtual ushort UnsignedShort
 		{
 			get
@@ -188,15 +130,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random unsigned short between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="start"/> is less than 0.</exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">The value of <paramref name="end"/> is greater than 65536.</exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random unsigned short in specified interval</returns>
 		public virtual ushort UnsignedShortBetween(int start, int end)
 		{
 			if (start > end)
@@ -211,9 +144,6 @@ namespace KornelijePetak.IncidentCS
 			return (ushort)Incident.Rand.Next(start, end);
 		}
 
-		/// <summary>
-		/// Gets a random integer from interval [-2147483648, 2147483647]
-		/// </summary>
 		public virtual int Integer
 		{
 			get
@@ -224,13 +154,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random integer between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random integer in specified interval</returns>
 		public virtual int IntegerBetween(int start, int end)
 		{
 			if (start > end)
@@ -239,9 +162,6 @@ namespace KornelijePetak.IncidentCS
 			return Incident.Rand.Next(start, end);
 		}
 
-		/// <summary>
-		/// Gets a random integer from interval [0, 2147483647]
-		/// </summary>
 		public virtual int PositiveInteger
 		{
 			get
@@ -250,9 +170,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random unsigned integer from interval [0, 4294967295]
-		/// </summary>
 		public virtual uint UnsignedInteger
 		{
 			get
@@ -263,13 +180,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random unsigned integer between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random unsigned integer in specified interval</returns>
 		public virtual uint UnsignedIntegerBetween(int start, int end)
 		{
 			if (start > end)
@@ -278,9 +188,6 @@ namespace KornelijePetak.IncidentCS
 			return (uint)(Incident.Rand.Next(start, end) + 2147483648L);
 		}
 
-		/// <summary>
-		/// Gets a random float from interval [float.MinValue, float.MaxValue]
-		/// </summary>
 		public virtual float Float
 		{
 			get
@@ -291,9 +198,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random float between 0 (inclusive) and 1 (exclusive)
-		/// </summary>
 		public virtual float FloatUnit
 		{
 			get
@@ -309,13 +213,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random float between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random float in specified interval</returns>
 		public virtual float FloatBetween(float start, float end)
 		{
 			if (start > end)
@@ -331,9 +228,6 @@ namespace KornelijePetak.IncidentCS
 			return (float)randomValue;
 		}
 
-		/// <summary>
-		/// Gets a random float between 0 (inclusive) and 1 (exclusive)
-		/// </summary>
 		public virtual double Double
 		{
 			get
@@ -344,9 +238,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random double precision value between 0 (inclusive) and 1 (exclusive)
-		/// </summary>
 		public virtual double DoubleUnit
 		{
 			get
@@ -355,13 +246,6 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		/// <summary>
-		/// Gets a random double between <paramref name="start"/> and <paramref name="end"/>
-		/// </summary>
-		/// <exception cref="System.ArgumentException">The value of <paramref name="start"/> is greater than the value of <paramref name="end"/></exception>
-		/// <param name="start">Inclusive lower bound</param>
-		/// <param name="end">Exclusive upper bound</param>
-		/// <returns>A random double in specified interval</returns>
 		public virtual double DoubleBetween(double start, double end)
 		{
 			if (start > end)
