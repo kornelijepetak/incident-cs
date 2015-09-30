@@ -9,6 +9,7 @@ namespace KornelijePetak.IncidentCS
 
 		public static IPrimitiveRandomizer Primitive { get; private set; }
 		public static ITextRandomizer Text { get; private set; }
+		public static IHumanRandomizer Human { get; private set; }
 
 		static Incident()
 		{

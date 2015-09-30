@@ -43,6 +43,7 @@ namespace KornelijePetak.IncidentCS
 		{
 			Primitive = new PrimitiveRandomizer();
 			Text = new TextRandomizer();
+			Human = new HumanRandomizer();
 		}
 	}
 }
