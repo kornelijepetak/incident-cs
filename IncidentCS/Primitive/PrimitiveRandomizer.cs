@@ -9,7 +9,7 @@ namespace KornelijePetak.IncidentCS
 	/// <summary>
 	/// Generates random primitive values
 	/// </summary>
-	public class PrimitiveRandomizer : IPrimitiveRandomizer
+	internal class PrimitiveRandomizer : IPrimitiveRandomizer
 	{
 		public virtual bool Boolean
 		{

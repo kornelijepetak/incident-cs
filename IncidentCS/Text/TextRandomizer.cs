@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KornelijePetak.IncidentCS
 {
-	public class TextRandomizer : ITextRandomizer
+	internal class TextRandomizer : ITextRandomizer
 	{
 		public virtual char ConsonantCharacter
 		{
