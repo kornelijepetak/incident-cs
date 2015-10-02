@@ -58,13 +58,13 @@ string Incident.Text.Paragraph
 
 ##### `Incident.Human`
 ```c#
-Incident.Human.Age(HumanAgeCategory ageCategory?)
-Incident.Human.BirthDay(HumanAgeCategory ageCategory?)
 Incident.Human.FirstName
 Incident.Human.LastName
 Incident.Human.FullName
 Incident.Human.GenderString
 Incident.Human.Gender
+Incident.Human.Age(HumanAgeCategory ageCategory?)
+Incident.Human.BirthDay(HumanAgeCategory ageCategory?)
 Incident.Human.Prefix(bool shortPrefix?, HumanGender gender?)
 Incident.Human.Suffix(bool shortSuffix?)
 ```
