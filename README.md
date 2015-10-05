@@ -4,85 +4,85 @@
 Randomization library for .NET
 Inspired by the [chance.js](http://chancejs.com/) library.
 
-## Currently available functions
-
-##### `Incident.Primitive`
-```c#
-bool Incident.Primitive.Boolean
-
-byte Incident.Primitive.Byte
-byte Incident.Primitive.ByteBetween(int start, int end)
-
-sbyte Incident.Primitive.SignedByte
-sbyte Incident.Primitive.SignedByteBetween(int start, int end)
-
-short Incident.Primitive.Short
-short Incident.Primitive.PositiveShort
-short Incident.Primitive.ShortBetween(int start, int end)
-
-ushort Incident.Primitive.UnsignedShort
-ushort Incident.Primitive.UnsignedShortBetween(int start, int end)
-
-int Incident.Primitive.Integer
-int Incident.Primitive.PositiveInteger
-int Incident.Primitive.IntegerBetween(int start, int end)
-
-uint Incident.Primitive.UnsignedInteger
-uint Incident.Primitive.UnsignedIntegerBetween(int start, int end)
-
-float Incident.Primitive.Float
-float Incident.Primitive.FloatUnit
-float Incident.Primitive.FloatBetween(float start, float end)
-
-double Incident.Primitive.Double
-double Incident.Primitive.DoubleUnit
-double Incident.Primitive.DoubleBetween(double start, double end)
-
-Guid Incident.Primitive.Guid
-
-DateTime Incident.Primitive.DateTime
-DateTime Incident.Primitive.TimeBetween(DateTime start, DateTime end)
-```
-
-##### `Incident.Text`
-```c#
-char Incident.Text.ConsonantCharacter
-string Incident.Text.Consonant
-char Incident.Text.VowelCharacter
-string Incident.Text.Vowel
-string Incident.Text.Syllable
-string Incident.Text.Word
-string Incident.Text.Sentence
-string Incident.Text.Paragraph
-```
-
-##### `Incident.Human`
-```c#
-Incident.Human.FirstName
-Incident.Human.LastName
-Incident.Human.FullName
-Incident.Human.GenderString
-Incident.Human.Gender
-Incident.Human.Age(HumanAgeCategory ageCategory?)
-Incident.Human.BirthDay(HumanAgeCategory ageCategory?)
-Incident.Human.Prefix(bool shortPrefix?, HumanGender gender?)
-Incident.Human.Suffix(bool shortSuffix?)
-```
-
 ## Randomization areas:
-- [ ] Primitives
+- [x] Primitives
     - [x] Numerics
     - [x] Guid
-    - [ ] Characters
+    - [x] Characters
     - [x] DateTime
-    - [ ] Timespans
-- [ ] Words and sentences
-- [ ] Names and Birthdays
+    - [x] Timespans
+- [x] Words and sentences
+- [x] Names and Birthdays
 - [ ] Phone numbers
 - [ ] Geographic data
 - [ ] Colors
 - [ ] Games related
 - [ ] Web related
 
-## Other features
+## Currently available functions
+
+##### `Incident.Primitive`
+```c#
+bool .Boolean
+
+byte .Byte
+byte .ByteBetween(int start, int end)
+
+sbyte .SignedByte
+sbyte .SignedByteBetween(int start, int end)
+
+short .Short
+short .PositiveShort
+short .ShortBetween(int start, int end)
+
+ushort .UnsignedShort
+ushort .UnsignedShortBetween(int start, int end)
+
+int .Integer
+int .PositiveInteger
+int .IntegerBetween(int start, int end)
+
+uint .UnsignedInteger
+uint .UnsignedIntegerBetween(int start, int end)
+
+float .Float
+float .FloatUnit
+float .FloatBetween(float start, float end)
+
+double .Double
+double .DoubleUnit
+double .DoubleBetween(double start, double end)
+
+Guid .Guid
+
+DateTime .DateTime
+DateTime .TimeBetween(DateTime start, DateTime end)
+```
+
+##### `Incident.Text`
+```c#
+char .ConsonantCharacter
+string .Consonant
+char .VowelCharacter
+string .Vowel
+string .Syllable
+string .Word
+string .Sentence
+string .Paragraph
+```
+
+##### `Incident.Human`
+```c#
+string .FirstName
+string .LastName
+string .FullName
+string .GenderString
+Gender .Gender
+int .Age(HumanAgeCategory ageCategory?)
+DateTime .BirthDay(HumanAgeCategory ageCategory?)
+string .Prefix(bool shortPrefix?, HumanGender gender?)
+string .Suffix(bool shortSuffix?)
+```
+
+## TODO / Other features
 - [ ] Consider using Mersene Twister instead of System.Random
