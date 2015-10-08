@@ -63,7 +63,7 @@ namespace KornelijePetak.IncidentCS
 
 			string incidentNamespace = typeof(Incident).Namespace;
 
-			string resourcePath = string.Format("{0}.{1}", incidentNamespace, resource);
+			string resourcePath = string.Format("{0}.Resources.{1}", incidentNamespace, resource);
 
 			using (StreamReader reader =
 				new StreamReader(assembly.GetManifestResourceStream(resourcePath)))

@@ -10,11 +10,12 @@ namespace KornelijePetak.IncidentCS
 {
 	internal class TextRandomizerEN : TextRandomizer
 	{
-		private string[] englishWords;
+		private static string[] englishWords;
 
 		internal TextRandomizerEN()
 		{
-			englishWords = "Localization.EN.Words.txt".LinesFromResource().ToArray();
+			if (englishWords == null)
+				englishWords = "Localization.EN.Words.txt".LinesFromResource().ToArray();
 		}
 
 		public override string Word

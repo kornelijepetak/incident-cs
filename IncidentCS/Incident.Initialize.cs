@@ -14,8 +14,13 @@ namespace KornelijePetak.IncidentCS
 		static Incident()
 		{
 			Rand = new Random();
-			setupConcreteRandomizers();
-		}
+
+			Primitive = new PrimitiveRandomizer();
+			Text = new TextRandomizer();
+			Human = new HumanRandomizer();
+
+			setupLocalizedRandomizers();
+        }
 
 		public static int Seed
 		{
@@ -24,5 +29,6 @@ namespace KornelijePetak.IncidentCS
 				Rand = new Random(value);
 			}
 		}
+
 	}
 }

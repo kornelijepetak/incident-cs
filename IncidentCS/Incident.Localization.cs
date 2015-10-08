@@ -22,14 +22,12 @@ namespace KornelijePetak.IncidentCS
 			set
 			{
 				culture = value;
-				setupConcreteRandomizers();
+				setupLocalizedRandomizers();
 			}
 		}
 
-		private static void setupConcreteRandomizers()
+		private static void setupLocalizedRandomizers()
 		{
-			setupDefaultRandomizers();
-
 			var langCode = Culture.TwoLetterISOLanguageName.ToUpper();
 			var cultureName = Culture.Name;
 
@@ -39,11 +37,5 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		private static void setupDefaultRandomizers()
-		{
-			Primitive = new PrimitiveRandomizer();
-			Text = new TextRandomizer();
-			Human = new HumanRandomizer();
-		}
 	}
 }

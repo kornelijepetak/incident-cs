@@ -34,8 +34,8 @@ namespace KornelijePetak.IncidentCS
 			return newDate.AddDays(Incident.Primitive.IntegerBetween(0, daysInYear)).Date;
 		}
 
-		private String[] firstNames = null;
-		private String[] lastNames = null;
+		private static String[] firstNames = null;
+		private static String[] lastNames = null;
 
 		public string FirstName
 		{
@@ -114,8 +114,8 @@ namespace KornelijePetak.IncidentCS
 			return prefixes.ChooseAtRandom();
 		}
 
-		private string[] shortSuffixes = null;
-		private string[] longSuffixes = null;
+		private static string[] shortSuffixes = null;
+		private static string[] longSuffixes = null;
 
 		public string Suffix(bool shortSuffix = true)
 		{

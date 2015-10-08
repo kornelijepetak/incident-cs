@@ -48,7 +48,7 @@
     <Compile Include="Incident.Utils.cs" />
     <Compile Include="Incident.Localization.cs" />
     <Compile Include="Incident.Initialize.cs" />
-    <Compile Include="Localization\LangTypeInfo.cs" />
+    <Compile Include="Resources\Localization\LangTypeInfo.cs" />
     <Compile Include="Primitive\IPrimitiveRandomizer.cs" />
     <Compile Include="Primitive\PrimitiveRandomizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,15 +57,16 @@
     <Compile Include="Text\TextRandomizer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\EN\Words.txt" />
+    <EmbeddedResource Include="Resources\Localization\EN\Words.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\LastNames.txt" />
-    <EmbeddedResource Include="Localization\FirstNames.txt" />
+    <EmbeddedResource Include="Resources\Localization\LastNames.txt" />
+    <EmbeddedResource Include="Resources\Localization\FirstNames.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\LongSuffixes.txt" />
-    <EmbeddedResource Include="Localization\ShortSuffixes.txt" />
+    <EmbeddedResource Include="Resources\Localization\LongSuffixes.txt" />
+    <EmbeddedResource Include="Resources\Localization\ShortSuffixes.txt" />
+  </ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
