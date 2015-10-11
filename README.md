@@ -5,19 +5,15 @@ Randomization library for .NET
 Inspired by the [chance.js](http://chancejs.com/) library.
 
 ## Randomization areas:
-- [x] Primitives
-    - [x] Numerics
-    - [x] Guid
-    - [x] Characters
-    - [x] DateTime
-    - [x] Timespans
-- [x] Words and sentences
-- [x] Names and Birthdays
-- [ ] Phone numbers
+- [x] Primitives (numbers, strings, etc.)
+- [x] Textual elements (words, sentences and paragraphs)
+ - [ ] LoremIpsum
+- [x] Human related (names, birthdays, etc.)
+ - [ ] Phones
+- [x] Web elements (domains, urls, colors)
+- [ ] Business data
 - [ ] Geographic data
-- [ ] Colors
 - [ ] Games related
-- [ ] Web related
 
 ## Currently available functions
 
@@ -82,6 +78,29 @@ int .Age(HumanAgeCategory ageCategory?)
 DateTime .BirthDay(HumanAgeCategory ageCategory?)
 string .Prefix(bool shortPrefix?, HumanGender gender?)
 string .Suffix(bool shortSuffix?)
+```
+
+##### `Incident.Web`
+```c#
+int .Port
+string .StandardTLD
+string .CountryCodeTLD
+string .TLD
+string .Hashtag
+string .Email
+string .CustomEmail(string tld, bool namesOnly)
+string .Domain
+string .CustomDomain(string tld, bool includeWWW)
+string .Url
+string .CustomUrl(string protocol, string extension)
+string .IPv4
+string .LocalIPv4
+string .IPv6
+string .Twitter
+string .RgbColor
+string .RgbaColor
+string .HexColor
+string .GoogleAnalyticsId
 ```
 
 ## TODO / Other features
