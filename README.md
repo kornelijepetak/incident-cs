@@ -11,6 +11,7 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 - [x] Human related (names, birthdays, etc.)
  - [ ] Phones
 - [x] Web elements (domains, urls, colors)
+- [ ] Business data
 - [ ] Geographic data
 - [ ] Games related
 
