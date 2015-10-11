@@ -10,6 +10,9 @@ namespace KornelijePetak.IncidentCS
 {
 	internal class TextRandomizer : ITextRandomizer
 	{
+		private static IRandomWheel<int> wordSyllablesCountWheel;
+		private static IRandomWheel<int> paragrapSentencesCountWheel;
+
 		public virtual char ConsonantCharacter
 		{
 			get
@@ -65,12 +68,17 @@ namespace KornelijePetak.IncidentCS
 		{
 			get
 			{
-				// One-syllable words have higher chance to be selected
-				int[] syllableCountChancePool = new[] { 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4 };
-				int syllableCount = syllableCountChancePool.ChooseAtRandom();
+				if (wordSyllablesCountWheel == null)
+				{
+					// Words with fewer syllables should have higher chance to be selected
+					wordSyllablesCountWheel = Incident.Utils.CreateWheel(
+						new Dictionary<int, double> { { 1, 8 }, { 2, 5 }, { 3, 3 }, { 4, 2 }, });
+				}
 
-				IEnumerable<string> syllables = Enumerable.Range(0, syllableCount).Select(x => Syllable);
-				return string.Join("", syllables);
+				return string.Join("",
+					Enumerable.Range(0, wordSyllablesCountWheel.RandomElement)
+					.Select(x => Syllable)
+				);
 			}
 		}
 
@@ -107,9 +115,14 @@ namespace KornelijePetak.IncidentCS
 		{
 			get
 			{
-				int[] sentencesCounts = new[] { 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 7, 8, 9 };
-				int sentencesCount = sentencesCounts.ChooseAtRandom();
-				return string.Join(" ", Enumerable.Range(0, sentencesCount).Select(_ => Sentence));
+				if (paragrapSentencesCountWheel == null)
+				{
+					// Paragraphs with fewer sentences should have higher chance to be selected
+					paragrapSentencesCountWheel = Incident.Utils.CreateWheel(
+						new Dictionary<int, double> { { 3, 3 }, { 4, 3 }, { 5, 2 }, { 6, 2 }, { 7, 1 }, { 8, 1 }, { 9, 1 } });
+				}
+
+				return string.Join(" ", Enumerable.Range(0, paragrapSentencesCountWheel.RandomElement).Select(_ => Sentence));
 			}
 		}
 	}

@@ -10,6 +10,8 @@ namespace KornelijePetak.IncidentCS
 		public static IPrimitiveRandomizer Primitive { get; private set; }
 		public static ITextRandomizer Text { get; private set; }
 		public static IHumanRandomizer Human { get; private set; }
+		public static IWebRandomizer Web { get; private set; }
+		public static IUtilsRandomizer Utils { get; private set; }
 
 		static Incident()
 		{
@@ -18,6 +20,8 @@ namespace KornelijePetak.IncidentCS
 			Primitive = new PrimitiveRandomizer();
 			Text = new TextRandomizer();
 			Human = new HumanRandomizer();
+			Web = new WebRandomizer();
+			Utils = new UtilsRandomizer();
 
 			setupLocalizedRandomizers();
         }
