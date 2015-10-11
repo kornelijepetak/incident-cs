@@ -54,6 +54,9 @@
     <Compile Include="Text\ITextRandomizer.cs" />
     <Compile Include="Text\TextRandomizer.EN.cs" />
     <Compile Include="Text\TextRandomizer.cs" />
+    <Compile Include="Utils\IRandomWheel.cs" />
+    <Compile Include="Utils\IUtilsRandomizer.cs" />
+    <Compile Include="Utils\UtilsRandomizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Localization\EN\Words.txt" />
