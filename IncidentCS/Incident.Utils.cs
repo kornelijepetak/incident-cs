@@ -92,5 +92,26 @@ namespace KornelijePetak.IncidentCS
 
 			return result.ToString();
 		}
+
+		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> collection, int count)
+		{
+			for (int i = 0; i < count; i++)
+			{
+				foreach (T item in collection)
+				{
+					yield return item;
+				}
+			}
+		}
+
+		public static string Repeat(Func<string> itemGenerator, int count)
+		{
+			StringBuilder result = new StringBuilder();
+
+			for (int i = 0; i < count; i++)
+				result.Append(itemGenerator());
+
+			return result.ToString();
+		}
 	}
 }
