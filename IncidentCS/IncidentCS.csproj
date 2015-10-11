@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\BusinessRandomizer.cs" />
+    <Compile Include="Business\IBusinessRandomizer.cs" />
+    <Compile Include="Games\GamesRandomizer.cs" />
+    <Compile Include="Games\IGamesRandomizer.cs" />
+    <Compile Include="Games\Poker.cs" />
     <Compile Include="Human\HumanGender.cs" />
     <Compile Include="Human\HumanAgeCategory.cs" />
     <Compile Include="Human\HumanRandomizer.cs" />
