@@ -10,7 +10,7 @@ namespace KornelijePetak.IncidentCS
 	public static partial class Incident
 	{
 		/// <summary>
-		/// Chooses an element from the list
+		/// Chooses a random element from the list
 		/// </summary>
 		/// <typeparam name="T">Collection item type</typeparam>
 		/// <param name="collection">[Extended] A collection from which to choose</param>
@@ -39,6 +39,12 @@ namespace KornelijePetak.IncidentCS
 			return collection.Skip(index).First();
 		}
 
+		/// <summary>
+		/// Picks a random element from the list. Removes the element from the list.
+		/// </summary>
+		/// <typeparam name="T">Collection item type</typeparam>
+		/// <param name="collection">[Extended] A collection from which to choose</param>
+		/// <returns>A random element from the collection</returns>
 		public static T PickAtRandom<T>(this List<T> collection)
 		{
 			int index = Rand.Next(collection.Count);
@@ -72,6 +78,12 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
+		/// <summary>
+		/// Capitalizes evey word in a string.
+		/// Word is every non-empty character string following a non-letter character.
+		/// </summary>
+		/// <param name="text">[Extended] The text to capitalize</param>
+		/// <returns>Capitalized string</returns>
 		public static string Capitalize(this string text)
 		{
 			StringBuilder result = new StringBuilder();
@@ -93,6 +105,17 @@ namespace KornelijePetak.IncidentCS
 			return result.ToString();
 		}
 
+		/// <summary>
+		/// Generates a new collection by repeating a collection <paramref name="count"/> times.
+		/// </summary>
+		/// <remarks>
+		///		Implemented as a generator.
+		///		It does not allocate new memory for the collection.
+		/// </remarks>
+		/// <typeparam name="T">Collection item type</typeparam>
+		/// <param name="collection">[Extended] A collection to repeat</param>
+		/// <param name="count">Number of times to repeat</param>
+		/// <returns>A new collection created by repeating an original collection <paramref name="count"/> times.</returns>
 		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> collection, int count)
 		{
 			for (int i = 0; i < count; i++)
@@ -104,6 +127,12 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
+		/// <summary>
+		/// Creates a string created by repeating a string.
+		/// </summary>
+		/// <param name="itemGenerator">A function that gives the original string</param>
+		/// <param name="count">Number of times to repeat</param>
+		/// <returns>A string created by repeating a string</returns>
 		public static string Repeat(Func<string> itemGenerator, int count)
 		{
 			StringBuilder result = new StringBuilder();
