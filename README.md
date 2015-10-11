@@ -84,5 +84,28 @@ string .Prefix(bool shortPrefix?, HumanGender gender?)
 string .Suffix(bool shortSuffix?)
 ```
 
+##### `Incident.Web`
+```c#
+int .Port
+string .StandardTLD
+string .CountryCodeTLD
+string .TLD
+string .Hashtag
+string .Email
+string .CustomEmail(string tld, bool namesOnly)
+string .Domain
+string .CustomDomain(string tld, bool includeWWW)
+string .Url
+string .CustomUrl(string protocol, string extension)
+string .IPv4
+string .LocalIPv4
+string .IPv6
+string .Twitter
+string .RgbColor
+string .RgbaColor
+string .HexColor
+string .GoogleAnalyticsId
+```
+
 ## TODO / Other features
 - [ ] Consider using Mersene Twister instead of System.Random
