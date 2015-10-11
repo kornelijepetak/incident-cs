@@ -261,7 +261,7 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		public string GoogleAnalytics
+		public string GoogleAnalyticsId
 		{
 			get
 			{

@@ -129,6 +129,6 @@ namespace KornelijePetak.IncidentCS
 		/// <summary>
 		/// A random Google Analytics identifier
 		/// </summary>
-		string GoogleAnalytics { get; }
+		string GoogleAnalyticsId { get; }
 	}
 }
