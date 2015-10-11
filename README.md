@@ -11,9 +11,9 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 - [x] Human related (names, birthdays, etc.)
  - [ ] Phones
 - [x] Web elements (domains, urls, colors)
-- [ ] Business data
+- [x] Business data
+- [x] Games related
 - [ ] Geographic data
-- [ ] Games related
 
 ## Currently available functions
 
@@ -101,6 +101,28 @@ string .RgbColor
 string .RgbaColor
 string .HexColor
 string .GoogleAnalyticsId
+```
+
+##### `Incident.Business`
+```c#
+string .CompanyType
+string .Company
+```
+
+##### `Incident.Games`
+```c#
+int .D2
+int .D3
+int .D4
+int .D6
+int .D8
+int .D10
+int .D12
+int .D20
+int .D100
+int .Dice(int sideCount)
+PokerSuit .PokerSuit
+PokerRank .PokerRank
 ```
 
 ## TODO / Other features
