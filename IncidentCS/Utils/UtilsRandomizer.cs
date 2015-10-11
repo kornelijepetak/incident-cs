@@ -8,20 +8,55 @@ namespace KornelijePetak.IncidentCS
 {
 	public class UtilsRandomizer : IUtilsRandomizer
 	{
-		public IRandomWheel<T> CreateWheel<T>(Dictionary<T, double> chances)
+		public virtual IRandomWheel<T> CreateWheel<T>(Dictionary<T, double> chances, bool saveChances = true)
 		{
-			return new RandomWheel<T>(chances);
+			return new RandomWheel<T>(chances, saveChances);
 		}
 
 		public class RandomWheel<T> : IRandomWheel<T>
 		{
-			public double[] Ranges { get { return chanceRanges; } }
+			/// <summary>
+			/// Returns a random element from the wheel
+			/// </summary>
+			public T RandomElement
+			{
+				get
+				{
+					return getRandomElement(Incident.Primitive.DoubleUnit, 0, Count - 1);
+				}
+			}
 
-			public double[] chanceRanges;
+			/// <summary>
+			/// Returns a number of items in the wheel
+			/// </summary>
+			public int Count { get { return items.Length; } }
+
+			/// <summary>
+			/// Returns the chance assigned to the <paramref name="element"/>
+			/// </summary>
+			/// <param name="element"></param>
+			/// <returns>The chance assigned to the <paramref name="element"/></returns>
+			public double ChanceOf(T element)
+			{
+				if(dictionary == null)
+					throw new ArgumentException("To be able to get the chances later, set saveChances to true on Wheel construction.");
+
+				return dictionary[element];
+			}
+
+			private double[] chanceRanges;
 			private T[] items;
 
-			internal RandomWheel(Dictionary<T, double> dictionary)
+			private Dictionary<T, double> dictionary;
+
+			internal RandomWheel(Dictionary<T, double> dictionary, bool saveChances)
 			{
+				if (saveChances)
+				{
+					this.dictionary = new Dictionary<T, double>(dictionary);
+					dictionary = this.dictionary;
+				}
+
 				chanceRanges = new double[dictionary.Count + 1];
 				items = new T[dictionary.Count];
 
@@ -41,17 +76,7 @@ namespace KornelijePetak.IncidentCS
 				}
 			}
 
-			public int Count { get { return items.Length; } }
-
-			public T RandomElement
-			{
-				get
-				{
-					return getRandomElement(Incident.Primitive.DoubleUnit, 0, Count - 1);
-				}
-			}
-
-			internal T getRandomElement(double val, int min, int max)
+			private T getRandomElement(double val, int min, int max)
 			{
 				int mid = (min + max) / 2;
 
@@ -62,7 +87,7 @@ namespace KornelijePetak.IncidentCS
 					return getRandomElement(val, mid + 1, max);
 
 				return items[mid];
-            }
+			}
 
 		}
 	}
