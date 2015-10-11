@@ -5,19 +5,14 @@ Randomization library for .NET
 Inspired by the [chance.js](http://chancejs.com/) library.
 
 ## Randomization areas:
-- [x] Primitives
-    - [x] Numerics
-    - [x] Guid
-    - [x] Characters
-    - [x] DateTime
-    - [x] Timespans
-- [x] Words and sentences
-- [x] Names and Birthdays
-- [ ] Phone numbers
+- [x] Primitives (numbers, strings, etc.)
+- [x] Textual elements (words, sentences and paragraphs)
+ - [] LoremIpsum
+- [x] Human related (names, birthdays, etc.)
+ - [] Phones
+- [x] Web elements (domains, urls, colors)
 - [ ] Geographic data
-- [ ] Colors
 - [ ] Games related
-- [ ] Web related
 
 ## Currently available functions
 
