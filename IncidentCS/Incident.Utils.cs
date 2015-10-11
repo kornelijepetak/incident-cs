@@ -58,7 +58,7 @@ namespace KornelijePetak.IncidentCS
 		/// </summary>
 		/// <typeparam name="T">Collection item type</typeparam>
 		/// <param name="collection">[Extended] A collection which to shuffle</param>
-		public static void Shuffle<T>(this List<T> collection)
+		public static void Shuffle<T>(this IList<T> collection)
 		{
 			for (int i = collection.Count - 1; i >= 1; i--)
 			{
@@ -116,22 +116,6 @@ namespace KornelijePetak.IncidentCS
 					yield return item;
 				}
 			}
-		}
-
-		/// <summary>
-		/// Creates a string created by repeating a string.
-		/// </summary>
-		/// <param name="itemGenerator">A function that gives the original string</param>
-		/// <param name="count">Number of times to repeat</param>
-		/// <returns>A string created by repeating a string</returns>
-		public static string Repeat(Func<string> itemGenerator, int count)
-		{
-			StringBuilder result = new StringBuilder();
-
-			for (int i = 0; i < count; i++)
-				result.Append(itemGenerator());
-
-			return result.ToString();
 		}
 
 		/// <summary>

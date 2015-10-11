@@ -90,6 +90,22 @@ namespace KornelijePetak.IncidentCS
 			}
 
 		}
+
+		/// <summary>
+		/// Creates a string created by repeating a string.
+		/// </summary>
+		/// <param name="itemGenerator">A function that gives the original string</param>
+		/// <param name="count">Number of times to repeat</param>
+		/// <returns>A string created by repeating a string</returns>
+		public string Repeat(Func<string> itemGenerator, int count)
+		{
+			StringBuilder result = new StringBuilder();
+
+			for (int i = 0; i < count; i++)
+				result.Append(itemGenerator());
+
+			return result.ToString();
+		}
 	}
 
 }

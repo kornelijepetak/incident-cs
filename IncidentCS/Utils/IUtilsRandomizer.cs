@@ -10,5 +10,6 @@ namespace KornelijePetak.IncidentCS
 	public interface IUtilsRandomizer
 	{
 		IRandomWheel<T> CreateWheel<T>(Dictionary<T, double> chances, bool saveChances = true);
-	}
+		string Repeat(Func<string> itemGenerator, int count);
+    }
 }

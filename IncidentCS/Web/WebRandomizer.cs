@@ -60,7 +60,7 @@ namespace KornelijePetak.IncidentCS
 					});
 				}
 
-				return "#" + Incident.Repeat(() => Incident.Text.Word, hashtagWordsCountWheel.RandomElement);
+				return "#" + Incident.Utils.Repeat(() => Incident.Text.Word, hashtagWordsCountWheel.RandomElement);
 			}
 		}
 
