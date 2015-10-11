@@ -34,15 +34,15 @@ namespace KornelijePetak.IncidentCS
 			return newDate.AddDays(Incident.Primitive.IntegerBetween(0, daysInYear)).Date;
 		}
 
-		private static String[] firstNames = null;
-		private static String[] lastNames = null;
+		private static string[] firstNames = null;
+		private static string[] lastNames = null;
 
 		public string FirstName
 		{
 			get
 			{
 				if (firstNames == null)
-					firstNames = "Localization.FirstNames.txt".LinesFromResource().ToArray();
+					firstNames = "FirstNames.txt".LinesFromResource().ToArray();
 
 				return firstNames.ChooseAtRandom();
 			}
@@ -53,7 +53,7 @@ namespace KornelijePetak.IncidentCS
 			get
 			{
 				if (lastNames == null)
-					lastNames = "Localization.LastNames.txt".LinesFromResource().ToArray();
+					lastNames = "LastNames.txt".LinesFromResource().ToArray();
 
 				return lastNames.ChooseAtRandom();
 			}
@@ -122,14 +122,14 @@ namespace KornelijePetak.IncidentCS
 			if (shortSuffix)
 			{
 				if (shortSuffixes == null)
-					shortSuffixes = "Localization.ShortSuffixes.txt".LinesFromResource().ToArray();
+					shortSuffixes = "ShortSuffixes.txt".LinesFromResource().ToArray();
 
 				return shortSuffixes.ChooseAtRandom();
 			}
 			else
 			{
 				if (longSuffixes == null)
-					longSuffixes = "Localization.LongSuffixes.txt".LinesFromResource().ToArray();
+					longSuffixes = "LongSuffixes.txt".LinesFromResource().ToArray();
 
 				return longSuffixes.ChooseAtRandom();
 			}
