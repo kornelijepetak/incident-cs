@@ -125,5 +125,22 @@ PokerSuit .PokerSuit
 PokerRank .PokerRank
 ```
 
+##### `Incident.Utils`
+```c#
+IRandomWheel<T> .CreateWheel<T>(Dictionary<T, double> chances, bool saveChances)
+string .Repeat(Func<string> itemGenerator, int count)
+```
+
+##### `[Extension methods]`
+```c#
+T IEnumerable<T>.ChooseAtRandom<T>()
+T IList<T>.PickAtRandom<T>()
+void IList<T>.Shuffle<T>()
+string string.Capitalize()
+IEnumerable<T> IEnumerable<T>.Repeat(int count)
+
+```
+
+
 ## TODO / Other features
 - [ ] Consider using Mersene Twister instead of System.Random
