@@ -62,6 +62,7 @@ string .Consonant
 char .VowelCharacter
 string .Vowel
 string .Syllable
+
 string .Word
 string .Sentence
 string .Paragraph
@@ -72,34 +73,44 @@ string .Paragraph
 string .FirstName
 string .LastName
 string .FullName
-string .GenderString
-Gender .Gender
-int .Age(HumanAgeCategory ageCategory?)
-DateTime .BirthDay(HumanAgeCategory ageCategory?)
+
 string .Prefix(bool shortPrefix?, HumanGender gender?)
 string .Suffix(bool shortSuffix?)
+
+string .GenderString
+Gender .Gender
+
+int .Age(HumanAgeCategory ageCategory?)
+DateTime .BirthDay(HumanAgeCategory ageCategory?)
 ```
 
 ##### `Incident.Web`
 ```c#
 int .Port
+
 string .StandardTLD
 string .CountryCodeTLD
 string .TLD
-string .Hashtag
+
 string .Email
 string .CustomEmail(string tld, bool namesOnly)
+
 string .Domain
 string .CustomDomain(string tld, bool includeWWW)
+
 string .Url
 string .CustomUrl(string protocol, string extension)
+
 string .IPv4
 string .LocalIPv4
 string .IPv6
-string .Twitter
+
 string .RgbColor
 string .RgbaColor
 string .HexColor
+
+string .Hashtag
+string .Twitter
 string .GoogleAnalyticsId
 ```
 
@@ -121,6 +132,7 @@ int .D12
 int .D20
 int .D100
 int .Dice(int sideCount)
+
 PokerSuit .PokerSuit
 PokerRank .PokerRank
 ```
