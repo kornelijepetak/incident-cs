@@ -7,7 +7,7 @@ namespace KornelijePetak.IncidentCS
 {
 	internal class HumanRandomizer : IHumanRandomizer
 	{
-		public int Age(HumanAgeCategory ageCategory = HumanAgeCategory.Adult)
+		public virtual int Age(HumanAgeCategory ageCategory = HumanAgeCategory.Adult)
 		{
 			switch (ageCategory)
 			{
@@ -25,7 +25,7 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		public DateTime Birthday(HumanAgeCategory ageCategory = HumanAgeCategory.Adult)
+		public virtual DateTime Birthday(HumanAgeCategory ageCategory = HumanAgeCategory.Adult)
 		{
 			var newDate = new DateTime(DateTime.Now.Year - Age(ageCategory), 1, 1);
 
@@ -37,7 +37,7 @@ namespace KornelijePetak.IncidentCS
 		private static string[] firstNames = null;
 		private static string[] lastNames = null;
 
-		public string FirstName
+		public virtual string FirstName
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		public string LastName
+		public virtual string LastName
 		{
 			get
 			{
@@ -59,7 +59,7 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		public string FullName
+		public virtual string FullName
 		{
 			get
 			{
@@ -67,7 +67,7 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		public string GenderString
+		public virtual string GenderString
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		public HumanGender Gender
+		public virtual HumanGender Gender
 		{
 			get
 			{
@@ -86,7 +86,7 @@ namespace KornelijePetak.IncidentCS
 			}
 		}
 
-		public string Prefix(bool shortPrefix = true, HumanGender gender = HumanGender.Unspecified)
+		public virtual string Prefix(bool shortPrefix = true, HumanGender gender = HumanGender.Unspecified)
 		{
 			List<string> prefixes = new List<string>();
 
@@ -117,7 +117,7 @@ namespace KornelijePetak.IncidentCS
 		private static string[] shortSuffixes = null;
 		private static string[] longSuffixes = null;
 
-		public string Suffix(bool shortSuffix = true)
+		public virtual string Suffix(bool shortSuffix = true)
 		{
 			if (shortSuffix)
 			{
