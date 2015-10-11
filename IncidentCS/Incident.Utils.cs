@@ -53,28 +53,19 @@ namespace KornelijePetak.IncidentCS
 			return element;
 		}
 
-		internal static string TextFromResource(this string resource)
+		/// <summary>
+		/// Shuffles a collection in-place
+		/// </summary>
+		/// <typeparam name="T">Collection item type</typeparam>
+		/// <param name="collection">[Extended] A collection which to shuffle</param>
+		public static void Shuffle<T>(this List<T> collection)
 		{
-			Assembly assembly = typeof(Incident).Assembly;
-			string resourcePath = "IncidentCS." + resource;
-			using (StreamReader reader = new StreamReader(assembly.GetManifestResourceStream(resourcePath)))
+			for (int i = collection.Count - 1; i >= 1; i--)
 			{
-				return reader.ReadToEnd();
-			}
-		}
-
-		internal static IEnumerable<string> LinesFromResource(this string resource)
-		{
-			Assembly assembly = typeof(Incident).Assembly;
-
-			string incidentNamespace = typeof(Incident).Namespace;
-
-			string resourcePath = string.Format("{0}.Resources.{1}", incidentNamespace, resource);
-
-			using (StreamReader reader =
-				new StreamReader(assembly.GetManifestResourceStream(resourcePath)))
-			{
-				return reader.ReadToEnd().Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+				int j = Incident.Primitive.IntegerBetween(0, i + 1);
+				var temp = collection[i];
+				collection[i] = collection[j];
+				collection[j] = temp;
 			}
 		}
 
@@ -96,7 +87,7 @@ namespace KornelijePetak.IncidentCS
 					continue;
 				}
 
-				if (text[i - 1] == ' ')
+				if (!char.IsLetter(text[i - 1]) && text[i - 1] != '\'')
 					result.Append(text[i].ToString().ToUpper());
 				else
 					result.Append(text[i]);
@@ -141,6 +132,48 @@ namespace KornelijePetak.IncidentCS
 				result.Append(itemGenerator());
 
 			return result.ToString();
+		}
+
+		/// <summary>
+		/// Returns a random enum value for an enum type
+		/// </summary>
+		/// <typeparam name="T">Enum type</typeparam>
+		/// <param name="enumType">[Extended] Enum type</param>
+		/// <returns>A random enum value</returns>
+		public static T RandomEnumValue<T>(this Type enumType)
+		{
+			if (!enumType.IsEnum)
+				throw new InvalidOperationException("The type given is not an enum.");
+
+			if (typeof(T) != enumType)
+				throw new InvalidOperationException("The type parameter must match a given enum type.");
+
+			return Enum.GetValues(enumType).OfType<T>().ChooseAtRandom();
+		}
+
+		internal static string TextFromResource(this string resource)
+		{
+			Assembly assembly = typeof(Incident).Assembly;
+			string resourcePath = "IncidentCS." + resource;
+			using (StreamReader reader = new StreamReader(assembly.GetManifestResourceStream(resourcePath)))
+			{
+				return reader.ReadToEnd();
+			}
+		}
+
+		internal static IEnumerable<string> LinesFromResource(this string resource)
+		{
+			Assembly assembly = typeof(Incident).Assembly;
+
+			string incidentNamespace = typeof(Incident).Namespace;
+
+			string resourcePath = string.Format("{0}.Resources.{1}", incidentNamespace, resource);
+
+			using (StreamReader reader =
+				new StreamReader(assembly.GetManifestResourceStream(resourcePath)))
+			{
+				return reader.ReadToEnd().Split(new[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+			}
 		}
 	}
 }
