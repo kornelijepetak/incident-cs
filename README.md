@@ -93,13 +93,13 @@ string .CountryCodeTLD
 string .TLD
 
 string .Email
-string .CustomEmail(string tld, bool namesOnly)
+string .CustomEmail(string tld?, bool namesOnly?)
 
 string .Domain
-string .CustomDomain(string tld, bool includeWWW)
+string .CustomDomain(string tld?, bool includeWWW?)
 
 string .Url
-string .CustomUrl(string protocol, string extension)
+string .CustomUrl(string protocol?, string extension?)
 
 string .IPv4
 string .LocalIPv4
@@ -112,6 +112,59 @@ string .HexColor
 string .Hashtag
 string .Twitter
 string .GoogleAnalyticsId
+```
+
+##### `Incident.Geo`
+```c#
+string .FullAddress 
+string .Address 
+string .Street 
+string .ZIP 
+string .PostalCode 
+
+string .City 
+string .State 
+string .Country 
+string .ImaginaryCountry 
+
+double .Altitude 
+double .CustomAltitude(int precision)
+
+double .Depth 
+double .CustomDepth(int precision)
+
+double .Latitude 
+double .CustomLatitude(int precision)
+
+double .Longitude 
+double .CustomLongitude(int precision)
+
+string .Coordinates 
+string .CustomCoordinates(int precision)
+
+string .GeoHash 
+```
+
+##### `Incident.Time`
+```c#
+string .AmPm 
+
+DateTime .Time(DateTime from, DateTime to)
+
+int .UnixTimestamp 
+long .Hammertime 
+
+int .Hour 
+int .Minute 
+int .Second 
+int .Millisecond 
+
+int .Day 
+int .Month 
+int .Year 
+int .LeapYear 
+
+int .CustomYear(int min, int max, bool onlyLeapYears?)
 ```
 
 ##### `Incident.Business`
@@ -139,7 +192,7 @@ PokerRank .PokerRank
 
 ##### `Incident.Utils`
 ```c#
-IRandomWheel<T> .CreateWheel<T>(Dictionary<T, double> chances, bool saveChances)
+IRandomWheel<T> .CreateWheel<T>(Dictionary<T, double> chances, bool saveChances?)
 string .Repeat(Func<string> itemGenerator, int count)
 ```
 
