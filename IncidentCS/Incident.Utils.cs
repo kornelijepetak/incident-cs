@@ -135,6 +135,47 @@ namespace KornelijePetak.IncidentCS
 			return Enum.GetValues(enumType).OfType<T>().ChooseAtRandom();
 		}
 
+		/// <summary>
+		/// Returns an index of the first element in a collection that satisfies the given predicate, or -1 if there is no such element.
+		/// </summary>
+		/// <typeparam name="T">Collection item type</typeparam>
+		/// <param name="collection">[Extended] A collection to search</param>
+		/// <param name="predicate">Predicate by which to search</param>
+		/// <returns>An index of the first element that satisfies the collection. Returns -1 if no element satisfies the predicate.</returns>
+		internal static int IndexOf<T>(this IEnumerable<T> collection, Predicate<T> predicate)
+		{
+			int index = 0;
+
+			foreach (var item in collection)
+			{
+				if (predicate(item))
+					return index;
+
+				index++;
+			}
+
+			return -1;
+		}
+
+		/// <summary>
+		/// Returns an index of the first element in a collection that satisfies the given predicate, or -1 if there is no such element.
+		/// </summary>
+		/// <typeparam name="T">Collection item type</typeparam>
+		/// <param name="collection">[Extended] A collection to search</param>
+		/// <param name="predicate">Predicate by which to search</param>
+		/// <returns>An index of the first element that satisfies the collection. Returns -1 if no element satisfies the predicate.</returns>
+		internal static int LastIndexOf<T>(this IList<T> collection, Predicate<T> predicate)
+		{
+			for (int i = collection.Count - 1; i >= 0; i--)
+			{
+				if (predicate(collection[i]))
+					return i;
+			}
+
+			return -1;
+		}
+
+
 		internal static string TextFromResource(this string resource)
 		{
 			Assembly assembly = typeof(Incident).Assembly;
