@@ -4,6 +4,8 @@
 Randomization library for .NET
 Inspired by the [chance.js](http://chancejs.com/) library.
 
+Over **70 different things** to randomize!
+
 ## Randomization areas:
 - [x] Primitives (numbers, strings, etc.)
 - [x] Textual elements (words, sentences and paragraphs)
