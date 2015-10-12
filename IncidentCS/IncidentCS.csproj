@@ -59,6 +59,8 @@
     <Compile Include="Text\ITextRandomizer.cs" />
     <Compile Include="Text\TextRandomizer.EN.cs" />
     <Compile Include="Text\TextRandomizer.cs" />
+    <Compile Include="Time\ITimeRandomizer.cs" />
+    <Compile Include="Time\TimeRandomizer.cs" />
     <Compile Include="Utils\IRandomWheel.cs" />
     <Compile Include="Utils\IUtilsRandomizer.cs" />
     <Compile Include="Utils\UtilsRandomizer.cs" />

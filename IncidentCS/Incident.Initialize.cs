@@ -14,6 +14,7 @@ namespace KornelijePetak.IncidentCS
 		public static IUtilsRandomizer Utils { get; private set; }
 		public static IGamesRandomizer Games { get; private set; }
 		public static IBusinessRandomizer Business { get; private set; }
+		public static ITimeRandomizer Time { get; private set; }
 
 		static Incident()
 		{
@@ -26,6 +27,7 @@ namespace KornelijePetak.IncidentCS
 			Utils = new UtilsRandomizer();
 			Games = new GamesRandomizer();
 			Business = new BusinessRandomizer();
+			Time = new TimeRandomizer();
 
 			setupLocalizedRandomizers();
         }
