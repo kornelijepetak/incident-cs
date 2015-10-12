@@ -13,7 +13,7 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 - [x] Web elements (domains, urls, colors)
 - [x] Business data
 - [x] Games related
-- [ ] Geographic data
+- [x] Geographic data
 
 ## Currently available functions
 
