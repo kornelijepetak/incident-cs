@@ -4,6 +4,11 @@
 Randomization library for .NET
 Inspired by the [chance.js](http://chancejs.com/) library.
 
+Over **70 different things** to randomize!
+
+You are welcome to add localization or suggest an improvement. 
+Send me a pull request.
+
 ## Randomization areas:
 - [x] Primitives (numbers, strings, etc.)
 - [x] Textual elements (words, sentences and paragraphs)
@@ -13,7 +18,7 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 - [x] Web elements (domains, urls, colors)
 - [x] Business data
 - [x] Games related
-- [ ] Geographic data
+- [x] Geographic data
 
 ## Currently available functions
 
