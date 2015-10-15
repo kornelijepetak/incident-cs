@@ -21,7 +21,7 @@ Over **70 different things** to randomize!
 
 Check the [wiki](https://github.com/kornelijepetak/incident-cs/wiki) for available randomizers
 
-## Localization
+## Localization / other
 
 You are welcome to add localized randomizers or suggest an improvement. 
 Send me a pull request.
