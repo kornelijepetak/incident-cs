@@ -15,9 +15,9 @@ Over **70 different things** to randomize!
 - [x] Textual elements (words, sentences and paragraphs)
  - [ ] LoremIpsum
 - [x] Human related (names, birthdays, etc.)
- - [ ] Phones
 - [x] Web elements (domains, urls, colors)
-- [x] Business data
+- [x] Business data (phones, companies)
+ - [ ] Schools, Universities
 - [x] Games related
 - [x] Geographic data
 
