@@ -6,9 +6,6 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 
 Over **70 different things** to randomize!
 
-You are welcome to add localization or suggest an improvement. 
-Send me a pull request.
-
 ## Randomization areas:
 - [x] Primitives (numbers, strings, etc.)
 - [x] Textual elements (words, sentences and paragraphs)
@@ -24,7 +21,10 @@ Send me a pull request.
 
 Check the [wiki](https://github.com/kornelijepetak/incident-cs/wiki) for available randomizers
 
+## Localization
 
+You are welcome to add localized randomizers or suggest an improvement. 
+Send me a pull request.
 
 ## TODO / Other features
 - [ ] Consider using Mersene Twister instead of System.Random
