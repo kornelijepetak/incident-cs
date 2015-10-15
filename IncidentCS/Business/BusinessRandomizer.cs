@@ -76,5 +76,26 @@ namespace KornelijePetak.IncidentCS
 				return companyTypeWheel.RandomElement;
 			}
 		}
+
+		public string Phone
+		{
+			get
+			{
+				List<string> parts = new List<string>();
+
+				if (Incident.Primitive.DoubleUnit < 0.2)
+					parts.Add("+" + Incident.Primitive.IntegerBetween(1, 1000));
+
+				if (parts.Count == 1)
+					parts.Add(string.Format("({0})", Incident.Primitive.IntegerBetween(10, 1000)));
+				else
+					parts.Add(Incident.Primitive.IntegerBetween(10, 1000).ToString());
+
+				parts.Add(Incident.Primitive.IntegerBetween(0, 10000).ToString().PadLeft(4, '0'));
+				parts.Add(Incident.Primitive.IntegerBetween(0, 1000).ToString().PadLeft(3, '0'));
+
+				return string.Join(" ", parts);
+			}
+		}
 	}
 }

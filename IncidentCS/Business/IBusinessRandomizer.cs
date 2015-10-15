@@ -11,5 +11,7 @@ namespace KornelijePetak.IncidentCS
 		string CompanyType { get; }
 
 		string Company { get; }
+
+		string Phone { get; }
 	}
 }
