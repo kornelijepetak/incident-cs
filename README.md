@@ -8,7 +8,7 @@ Over **70 different things** to randomize!
 
 ## Wiki
 
-Check the [wiki](https://github.com/kornelijepetak/incident-cs/wiki) for the list of available randomizers
+[Check the wiki](https://github.com/kornelijepetak/incident-cs/wiki) for the list of available randomizers
 
 ## Randomization areas:
 - [x] Primitives (numbers, strings, etc.)
