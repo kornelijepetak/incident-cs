@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KornelijePetak.IncidentCS
+namespace IncidentCS
 {
 	public interface ITextRandomizer
 	{

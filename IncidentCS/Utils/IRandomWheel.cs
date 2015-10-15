@@ -1,4 +1,4 @@
-﻿namespace KornelijePetak.IncidentCS
+﻿namespace IncidentCS
 {
 	public interface IRandomWheel<T>
 	{

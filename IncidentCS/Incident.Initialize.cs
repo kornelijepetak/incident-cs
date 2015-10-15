@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace KornelijePetak.IncidentCS
+namespace IncidentCS
 {
 	public static partial class Incident
 	{

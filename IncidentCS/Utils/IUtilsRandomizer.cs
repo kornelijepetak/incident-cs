@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KornelijePetak.IncidentCS
+namespace IncidentCS
 {
 	public interface IUtilsRandomizer
 	{

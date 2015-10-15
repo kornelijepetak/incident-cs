@@ -7,7 +7,7 @@
     <ProjectGuid>{3D979B62-8988-4740-97D3-FCA97E9F0277}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KornelijePetak.IncidentCS</RootNamespace>
+    <RootNamespace>IncidentCS</RootNamespace>
     <AssemblyName>IncidentCS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

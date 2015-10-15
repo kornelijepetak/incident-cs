@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace KornelijePetak.IncidentCS
+namespace IncidentCS
 {
 	public class UtilsRandomizer : IUtilsRandomizer
 	{

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace KornelijePetak.IncidentCS
+namespace IncidentCS
 {
 	public static partial class Incident
 	{

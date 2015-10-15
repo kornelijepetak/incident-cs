@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace KornelijePetak.IncidentCS
+namespace IncidentCS
 {
 	internal class GamesRandomizer : IGamesRandomizer
 	{

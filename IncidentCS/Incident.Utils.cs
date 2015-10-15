@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace KornelijePetak.IncidentCS
+namespace IncidentCS
 {
 	public static partial class Incident
 	{
