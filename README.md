@@ -6,6 +6,10 @@ Inspired by the [chance.js](http://chancejs.com/) library.
 
 Over **70 different things** to randomize!
 
+## Wiki
+
+Check the [wiki](https://github.com/kornelijepetak/incident-cs/wiki) for the list of available randomizers
+
 ## Randomization areas:
 - [x] Primitives (numbers, strings, etc.)
 - [x] Textual elements (words, sentences and paragraphs)
@@ -16,10 +20,6 @@ Over **70 different things** to randomize!
 - [x] Business data
 - [x] Games related
 - [x] Geographic data
-
-## Wiki
-
-Check the [wiki](https://github.com/kornelijepetak/incident-cs/wiki) for available randomizers
 
 ## Localization / other
 
