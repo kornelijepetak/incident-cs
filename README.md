@@ -16,7 +16,7 @@ PM> Install-Package IncidentCS
 
 ## Get started
 
-[Check the wiki](https://github.com/kornelijepetak/incident-cs/wiki) for the list of available randomizers or see the **example** belosw for the quick start. 
+[Check the wiki](https://github.com/kornelijepetak/incident-cs/wiki) for the list of available randomizers or see the **example** below for the quick start. 
 
 Note that the example shows only a small subset of randomization areas.
 
