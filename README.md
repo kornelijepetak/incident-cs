@@ -1,9 +1,12 @@
 # incident-cs
 ![Logo](http://kornelijepetak.com/incident-logo.png)
 
-Randomization library for .NET
+A randomization library for .NET
+
 Inspired by the [chance.js](http://chancejs.com/) library.
+
 Over **70 different things** to randomize! [Download from NuGet!](https://www.nuget.org/packages/IncidentCS)
+
 ```
 PM> Install-Package IncidentCS
 ```
