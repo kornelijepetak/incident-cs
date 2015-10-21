@@ -5,16 +5,31 @@ A randomization library for .NET
 
 *(inspired by the [chance.js](http://chancejs.com/) library)*
 
-Over **70 different things** to randomize! [Download from NuGet!](https://www.nuget.org/packages/IncidentCS)
+Over **70 different things** to randomize! 
+
+[Download from NuGet!](https://www.nuget.org/packages/IncidentCS)
 
 ```
 PM> Install-Package IncidentCS
 ```
 
 
-## Wiki
+## Get started
 
-[Check the wiki](https://github.com/kornelijepetak/incident-cs/wiki) for the list of available randomizers
+[Check the wiki](https://github.com/kornelijepetak/incident-cs/wiki) for the list of available randomizers or see the **example** belosw for the quick start. 
+
+Note that the example shows only a small subset of randomization areas.
+
+## Randomization areas:
+- [x] Primitives (numbers, strings, etc.)
+- [x] Textual elements (words, sentences and paragraphs)
+ - [ ] LoremIpsum
+- [x] Human related (names, birthdays, etc.)
+- [x] Web elements (domains, urls, colors)
+- [x] Business data (phones, companies)
+ - [ ] Schools, Universities
+- [x] Games related
+- [x] Geographic data
 
 ## Example
 
@@ -60,17 +75,6 @@ var user = new User()
     FavoriteQuote = Incident.Text.Sentence
 };
 ```
-
-## Randomization areas:
-- [x] Primitives (numbers, strings, etc.)
-- [x] Textual elements (words, sentences and paragraphs)
- - [ ] LoremIpsum
-- [x] Human related (names, birthdays, etc.)
-- [x] Web elements (domains, urls, colors)
-- [x] Business data (phones, companies)
- - [ ] Schools, Universities
-- [x] Games related
-- [x] Geographic data
 
 ## Localization / other
 
