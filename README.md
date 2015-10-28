@@ -1,4 +1,3 @@
-# incident-cs
 ![Logo](https://raw.githubusercontent.com/kornelijepetak/incident-cs/master/artifacts/logo-extended.png)
 
 A randomization library for .NET
