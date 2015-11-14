@@ -78,6 +78,9 @@ namespace IncidentCS
 
 			private T getRandomElement(double val, int min, int max)
 			{
+				// Uses recursive binary-search to find the interval.
+				// ...
+
 				int mid = (min + max) / 2;
 
 				if (val < chanceRanges[mid])
