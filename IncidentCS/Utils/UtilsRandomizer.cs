@@ -13,7 +13,7 @@ namespace IncidentCS
 			return new RandomWheel<T>(chances, saveChances);
 		}
 
-		public class RandomWheel<T> : IRandomWheel<T>
+		internal class RandomWheel<T> : IRandomWheel<T>
 		{
 			/// <summary>
 			/// Returns a random element from the wheel
