@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="MathExt.cs" />
+    <Compile Include="RandomWheel.cs" />
     <Compile Include="Primitives.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
