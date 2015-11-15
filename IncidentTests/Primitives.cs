@@ -498,16 +498,7 @@ namespace IncidentTests
 
 		protected void Test(Func<int> nextRandomElement, int arraySize, int numberCount = DefaultTestIterationCount, double expectedPercentage = 5)
 		{
-			int[] counts = new int[arraySize];
-
-			for (int i = 0; i < numberCount; i++)
-			{
-				var next = nextRandomElement();
-				counts[next]++;
-			}
-
-			// Expect that standard deviation is less than expectedPercentage% of the expected bucket size
-			Assert.IsTrue(counts.Validate(numberCount, expectedPercentage));
+			MathExt.Test(nextRandomElement, arraySize, numberCount, expectedPercentage);
 		}
 
 		private int getFloatRandomBucketFromRange(float start, float end, Func<float, float, float> randomValueSelector, int bucketCount)
