@@ -155,8 +155,6 @@ namespace IncidentCS
 					Enumerable.Range(DateTime.MinValue.Year, DateTime.MaxValue.Year)
 					.Where(DateTime.IsLeapYear)
 					.ToArray();
-
-				Console.WriteLine(string.Join(" ", leapYears.Where(y => y > 1900 && y < 2450)));
 			}
 		}
 	}
