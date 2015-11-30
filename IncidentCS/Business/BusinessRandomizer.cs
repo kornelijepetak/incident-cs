@@ -53,7 +53,7 @@ namespace IncidentCS
 				else if (Incident.Primitive.DoubleUnit < 0.5)
 					parts.Add(" " + CompanyType);
 
-				return string.Join("", parts);
+				return parts.StringJoin();
 			}
 		}
 
@@ -94,7 +94,7 @@ namespace IncidentCS
 				parts.Add(Incident.Primitive.IntegerBetween(0, 10000).ToString().PadLeft(4, '0'));
 				parts.Add(Incident.Primitive.IntegerBetween(0, 1000).ToString().PadLeft(3, '0'));
 
-				return string.Join(" ", parts);
+				return parts.StringJoin(" ");
 			}
 		}
 	}

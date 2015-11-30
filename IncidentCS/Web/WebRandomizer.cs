@@ -98,7 +98,7 @@ namespace IncidentCS
 			if (string.IsNullOrEmpty(tld))
 				tld = StandardTLD;
 
-			tld = string.Join("", tld.Where(c => char.IsLetterOrDigit(c)));
+            tld = tld.Where(c => char.IsLetterOrDigit(c)).StringJoin();
 
 			var localPartSource = namesOnly ? emailLocalPartNamesOnlyWheel : emailLocalPartWheel;
 			var domain = CustomDomain(tld, false);
@@ -209,8 +209,9 @@ namespace IncidentCS
 		{
 			get
 			{
-				return string.Join(":",
-					Enumerable.Range(0, 8).Select(_ => Incident.Primitive.UnsignedShort.ToString("x4")));
+				return Enumerable.Range(0, 8)
+                    .Select(_ => Incident.Primitive.UnsignedShort.ToString("x4"))
+                    .StringJoin(":");
 			}
 		}
 

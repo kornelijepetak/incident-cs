@@ -74,10 +74,9 @@ namespace IncidentCS
 						new Dictionary<int, double> { { 1, 8 }, { 2, 5 }, { 3, 3 }, { 4, 2 }, });
 				}
 
-				return string.Join("",
-					Enumerable.Range(0, wordSyllablesCountWheel.RandomElement)
-					.Select(x => Syllable)
-				);
+                return Enumerable.Range(0, wordSyllablesCountWheel.RandomElement)
+                    .Select(x => Syllable)
+                    .StringJoin();
 			}
 		}
 
@@ -121,7 +120,9 @@ namespace IncidentCS
 						new Dictionary<int, double> { { 3, 3 }, { 4, 3 }, { 5, 2 }, { 6, 2 }, { 7, 1 }, { 8, 1 }, { 9, 1 } });
 				}
 
-				return string.Join(" ", Enumerable.Range(0, paragrapSentencesCountWheel.RandomElement).Select(_ => Sentence));
+				return Enumerable.Range(0, paragrapSentencesCountWheel.RandomElement)
+                    .Select(_ => Sentence)
+                    .StringJoin(" ");
 			}
 		}
 	}

@@ -234,7 +234,9 @@ namespace IncidentCS
 			get
 			{
 				int precision = Incident.Primitive.IntegerBetween(5, 10);
-				return string.Join("", Enumerable.Range(0, precision).Select(_ => base32alphabet.ChooseAtRandom()));
+                return Enumerable.Range(0, precision)
+                    .Select(_ => base32alphabet.ChooseAtRandom())
+                    .StringJoin();
 			}
 		}
 	}

@@ -175,8 +175,25 @@ namespace IncidentCS
 			return -1;
 		}
 
+        internal static String StringJoin<T>(this IEnumerable<T> collection, string separator = "")
+        {
+            StringBuilder builder = new StringBuilder();
 
-		internal static string TextFromResource(this string resource)
+            if (!collection.Any())
+                return string.Empty;
+
+            builder.Append(collection.First());
+
+            foreach (object obj in collection.Skip(1))
+            {
+                builder.Append(separator);
+                builder.Append(obj.ToString());
+            }
+
+            return builder.ToString();
+        }
+
+        internal static string TextFromResource(this string resource)
 		{
 			Assembly assembly = typeof(Incident).Assembly;
 			string resourcePath = "IncidentCS." + resource;
