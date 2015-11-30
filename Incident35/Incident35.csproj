@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C059A5E-7969-4250-94E3-7D39F2C45424}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Incident35</RootNamespace>
+    <AssemblyName>Incident35</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\IncidentCS\Business\BusinessRandomizer.cs">
+      <Link>Business\BusinessRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Business\IBusinessRandomizer.cs">
+      <Link>Business\IBusinessRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Games\GamesRandomizer.cs">
+      <Link>Games\GamesRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Games\IGamesRandomizer.cs">
+      <Link>Games\IGamesRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Games\Poker.cs">
+      <Link>Games\Poker.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Geo\GeoRandomizer.cs">
+      <Link>Geo\GeoRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Geo\IGeoRandomizer.cs">
+      <Link>Geo\IGeoRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Human\HumanAgeCategory.cs">
+      <Link>Human\HumanAgeCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Human\HumanGender.cs">
+      <Link>Human\HumanGender.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Human\HumanRandomizer.cs">
+      <Link>Human\HumanRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Human\IHumanRandomizer.cs">
+      <Link>Human\IHumanRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Incident.Initialize.cs">
+      <Link>Incident.Initialize.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Incident.Localization.cs">
+      <Link>Incident.Localization.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Incident.Utils.cs">
+      <Link>Incident.Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Primitive\IPrimitiveRandomizer.cs">
+      <Link>Primitive\IPrimitiveRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Primitive\PrimitiveRandomizer.cs">
+      <Link>Primitive\PrimitiveRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Properties\AssemblyInfo.Version.cs">
+      <Link>Properties\AssemblyInfo.Version.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Text\ITextRandomizer.cs">
+      <Link>Text\ITextRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Text\TextRandomizer.cs">
+      <Link>Text\TextRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Text\TextRandomizer.EN.cs">
+      <Link>Text\TextRandomizer.EN.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Time\ITimeRandomizer.cs">
+      <Link>Time\ITimeRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Time\TimeRandomizer.cs">
+      <Link>Time\TimeRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Utils\ChangeModifier.cs">
+      <Link>Utils\ChangeModifier.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Utils\ChangeModifierOrder.cs">
+      <Link>Utils\ChangeModifierOrder.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Utils\IRandomWheel.cs">
+      <Link>Utils\IRandomWheel.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Utils\IUtilsRandomizer.cs">
+      <Link>Utils\IUtilsRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Utils\UtilsRandomizer.cs">
+      <Link>Utils\UtilsRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Web\IWebRandomizer.cs">
+      <Link>Web\IWebRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="..\IncidentCS\Web\WebRandomizer.cs">
+      <Link>Web\WebRandomizer.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\IncidentCS\Resources\Localization\EN\Words.txt">
+      <Link>Resources\Localization\EN\Words.txt</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\IncidentCS\Resources\ccTLD.txt">
+      <Link>Resources\ccTLD.txt</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\IncidentCS\Resources\Countries.txt">
+      <Link>Resources\Countries.txt</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\IncidentCS\Resources\FirstNames.txt">
+      <Link>Resources\FirstNames.txt</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\IncidentCS\Resources\LastNames.txt">
+      <Link>Resources\LastNames.txt</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\IncidentCS\Resources\LongSuffixes.txt">
+      <Link>Resources\LongSuffixes.txt</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\IncidentCS\Resources\ShortStreetSuffixes.txt">
+      <Link>Resources\ShortStreetSuffixes.txt</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\IncidentCS\Resources\ShortSuffixes.txt">
+      <Link>Resources\ShortSuffixes.txt</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\IncidentCS\Resources\StreetSuffixes.txt">
+      <Link>Resources\StreetSuffixes.txt</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
